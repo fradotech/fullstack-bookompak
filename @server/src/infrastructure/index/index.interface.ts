@@ -24,5 +24,4 @@ export interface IPaginationMeta {
 export interface IPaginateResponse<T> {
   meta: IPaginationMeta
   data: Array<T>
-  dataExport?: Array<T>
 }

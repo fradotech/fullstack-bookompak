@@ -1,7 +1,7 @@
 import { IPaginateResponse } from '@server/src/infrastructure/index/index.interface';
 import { UserIndexRequest } from '@server/src/modules/iam/user/infrastructure/user.request';
 import { UserResponse } from '@server/src/modules/iam/user/infrastructure/user.response';
-import { Route } from 'client/Enums/Route';
+import { Route } from '../Enums/Route';
 import { axiosAction } from './Axios';
 
 export const userAction = {
