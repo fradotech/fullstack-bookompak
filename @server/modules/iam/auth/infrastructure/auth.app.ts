@@ -11,7 +11,7 @@ import {
   AuthChangePasswordRequest,
   AuthEmailRequest,
   AuthLoginRequest,
-  AuthRegisterRequest
+  AuthRegisterRequest,
 } from './auth.request'
 import { AuthService } from './auth.service'
 

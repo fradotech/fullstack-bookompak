@@ -1,24 +1,23 @@
-import { IPaginationMeta } from '@server/infrastructure/index/index.interface';
-import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response';
-import React from "react";
-import DataTable from '../../Components/Organs/DataTable/DataTable';
-import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter';
-import { userAction } from '../../Modules/User';
-import { usersColumns } from './columns';
-
-interface IProps {
-  data: UserResponse[];
-  meta: IPaginationMeta
-}
+import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
+import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import React from 'react'
+import DataTable from '../../Components/Organs/DataTable/DataTable'
+import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter'
+import { userAction } from '../../Modules/User'
+import { usersColumns } from './columns'
 
 const Users: React.FC = () => {
-  const [props, setProps] = React.useState<IProps>()
-  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([]);
-  const { setQueryParams, status: { isFetching } } = useTableFilter();
-  const onSelectChange = (selectRow: React.Key[]) => setSelectedRowKeys(selectRow);
+  const [props, setProps] = React.useState<IPaginateResponse<UserResponse>>()
+  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
+  const {
+    setQueryParams,
+    status: { isFetching },
+  } = useTableFilter()
+  const onSelectChange = (selectRow: React.Key[]) =>
+    setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    (async () => setProps(await userAction.fetch()))()
+    ;(async () => setProps(await userAction.fetch()))()
   })
 
   return (
@@ -40,4 +39,4 @@ const Users: React.FC = () => {
   )
 }
 
-export default Users;
+export default Users

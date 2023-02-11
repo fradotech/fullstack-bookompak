@@ -7,7 +7,7 @@ import { UserResponse } from '../../user/infrastructure/user.response'
 import { AuthApp } from '../infrastructure/auth.app'
 import {
   AuthChangePasswordRequest,
-  AuthEmailRequest
+  AuthEmailRequest,
 } from '../infrastructure/auth.request'
 
 const THIS_MODULE = Modules.Auth + '/password'

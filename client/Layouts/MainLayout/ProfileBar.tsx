@@ -1,19 +1,17 @@
-import { UserOutlined } from '@ant-design/icons';
-import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface';
-import {
-  Avatar, Space, Typography
-} from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Route } from '../../Enums/Route';
+import { UserOutlined } from '@ant-design/icons'
+import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
+import { Avatar, Space, Typography } from 'antd'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Route } from '../../Enums/Route'
 
 type IProps = {
-  children?: React.ReactNode;
-  headerRightMenu?: React.FC;
+  children?: React.ReactNode
+  headerRightMenu?: React.FC
   user: IAppUser
-};
+}
 
-const { Text } = Typography;
+const { Text } = Typography
 
 const ProfileBar: React.FC<IProps> = (props: IProps) => {
   return (
@@ -31,15 +29,9 @@ const ProfileBar: React.FC<IProps> = (props: IProps) => {
     >
       <Link to={Route.Profile}>
         <Space size="small">
-          <Avatar
-            size="default"
-            icon={<UserOutlined />}
-          />
+          <Avatar size="default" icon={<UserOutlined />} />
 
-          <Space.Compact
-            direction="vertical"
-            size="small"
-          >
+          <Space.Compact direction="vertical" size="small">
             <Text
               style={{
                 fontWeight: '500',
@@ -49,12 +41,11 @@ const ProfileBar: React.FC<IProps> = (props: IProps) => {
             >
               {props?.user?.name || 'Nanang Ari Alfin Ayong'}
             </Text>
-
           </Space.Compact>
         </Space>
       </Link>
     </div>
-  );
-};
+  )
+}
 
 export default ProfileBar

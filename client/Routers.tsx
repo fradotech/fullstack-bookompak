@@ -1,11 +1,12 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Route as HttpRoute } from './Enums/Route';
-import MainLayout from "./Layouts/MainLayout/MainLayout";
-import Login from "./Pages/Auth/Login";
-import Dashboard from './Pages/Dashboard/Dashboard';
-import NotFound from "./Pages/NotFound";
-import Users from "./Pages/User/Users";
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route as HttpRoute } from './Enums/Route'
+import MainLayout from './Layouts/MainLayout/MainLayout'
+import Login from './Pages/Auth/Login'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import NotFound from './Pages/NotFound'
+import UserDetail from './Pages/User/UserDetail'
+import Users from './Pages/User/Users'
 
 const Routers: React.FC = () => {
   return (
@@ -19,13 +20,16 @@ const Routers: React.FC = () => {
         <MainLayout>
           <Routes>
             <Route path={HttpRoute.Dashboard} element={<Dashboard />} />
+
             <Route path={HttpRoute.User} element={<Users />} />
-            <Route path='*' element={<NotFound />} />
+            <Route path={HttpRoute.UserDetail} element={<UserDetail />} />
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </MainLayout>
-      </BrowserRouter >
+      </BrowserRouter>
     </>
   )
 }
 
-export default Routers;
+export default Routers

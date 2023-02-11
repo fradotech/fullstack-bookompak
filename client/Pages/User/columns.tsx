@@ -1,8 +1,8 @@
-import { UserResponse } from "@server/modules/iam/user/infrastructure/user.response";
-import { ColumnsType } from "antd/es/table";
-import React from "react";
-import { RowActionButtons } from "../../Components/Molecules/RowActionButtons/RowActionButtons";
-import { Route } from "../../Enums/Route";
+import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { ColumnsType } from 'antd/es/table'
+import React from 'react'
+import { RowActionButtons } from '../../Components/Molecules/RowActionButtons/RowActionButtons'
+import { Route } from '../../Enums/Route'
 
 export const usersColumns: ColumnsType<UserResponse> = [
   {
@@ -57,4 +57,4 @@ export const usersColumns: ColumnsType<UserResponse> = [
       )
     },
   },
-];
+]

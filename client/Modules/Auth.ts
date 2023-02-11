@@ -1,10 +1,11 @@
-import { AuthLoginRequest } from "@server/modules/iam/auth/infrastructure/auth.request";
-import { UserResponse } from "@server/modules/iam/user/infrastructure/user.response";
-import { Route } from "../Enums/Route";
-import { axiosAction } from "./Axios";
+import { AuthLoginRequest } from '@server/modules/iam/auth/infrastructure/auth.request'
+import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { Route } from '../Enums/Route'
+import { axiosAction } from './Axios'
 
 export const authAction = {
-  loggedUser: (): UserResponse => JSON.parse(localStorage.getItem('user') || 'null'),
+  loggedUser: (): UserResponse =>
+    JSON.parse(localStorage.getItem('user') || 'null'),
 
   login: async (req: AuthLoginRequest): Promise<UserResponse> => {
     const data = await axiosAction.post(Route.Login, req, false)
@@ -16,8 +17,8 @@ export const authAction = {
   },
 
   logout: (): boolean => {
-    localStorage.removeItem('_accessToken');
-    localStorage.removeItem('user');
+    localStorage.removeItem('_accessToken')
+    localStorage.removeItem('user')
     return true
   },
-};
+}

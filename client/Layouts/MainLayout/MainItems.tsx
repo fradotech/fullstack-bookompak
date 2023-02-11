@@ -1,16 +1,22 @@
-import { AuditOutlined, DashboardOutlined, MergeCellsOutlined, ReconciliationOutlined, UsergroupAddOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import {
+  AuditOutlined,
+  DashboardOutlined,
+  MergeCellsOutlined,
+  ReconciliationOutlined,
+  UsergroupAddOutlined,
+} from '@ant-design/icons'
+import type { MenuProps } from 'antd'
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Route } from '../../Enums/Route';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Route } from '../../Enums/Route'
 
 export type IProps = {
-  children: React.ReactNode;
-  headerRightMenu?: React.FC;
-};
+  children: React.ReactNode
+  headerRightMenu?: React.FC
+}
 
-type MenuItem = Required<MenuProps>['items'][number];
+type MenuItem = Required<MenuProps>['items'][number]
 
 export const menuItems: MenuItem[] = [
   {
@@ -37,5 +43,5 @@ export const menuItems: MenuItem[] = [
     key: Route.User,
     label: <Link to={Route.User}>User</Link>,
     icon: <UsergroupAddOutlined />,
-  }
-];
+  },
+]

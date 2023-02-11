@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const host = 'http://localhost:3000/api/v1'
 
@@ -7,9 +7,9 @@ export const axiosAction = {
     try {
       const { data } = await axios.get(`${host}${endpoint}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('_accessToken')}`
+          Authorization: `Bearer ${localStorage.getItem('_accessToken')}`,
         },
-        params
+        params,
       })
 
       return data
@@ -19,12 +19,16 @@ export const axiosAction = {
     }
   },
 
-  post: async (endpoint: string, dataPost?: any, isCatch?: boolean): Promise<any> => {
+  post: async (
+    endpoint: string,
+    dataPost?: any,
+    isCatch?: boolean,
+  ): Promise<any> => {
     try {
       const { data } = await axios.post(`${host}${endpoint}`, dataPost, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('_accessToken')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('_accessToken')}`,
+        },
       })
 
       return data
@@ -32,5 +36,5 @@ export const axiosAction = {
       isCatch && alert(error)
       return error
     }
-  }
+  },
 }

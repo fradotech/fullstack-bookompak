@@ -7,7 +7,7 @@ import {
   Post,
   Put,
   Query,
-  UseGuards
+  UseGuards,
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { BaseCrudController } from '@server/infrastructure/base/base-crud.controller'
@@ -19,7 +19,7 @@ import { UserCrudApp } from '../infrastructure/user-crud.app'
 import {
   UserIndexRequest,
   UserRequest,
-  UserUpdateRequest
+  UserUpdateRequest,
 } from '../infrastructure/user.request'
 import { UserResponse } from '../infrastructure/user.response'
 

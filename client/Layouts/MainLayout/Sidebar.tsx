@@ -1,43 +1,43 @@
-import { LogoutOutlined } from '@ant-design/icons';
-import { ConfigProvider, Menu } from 'antd';
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Route } from '../../Enums/Route';
-import { authAction } from '../../Modules/Auth';
-import { sidebarThemeConfig } from '../../utils/theme';
-import { menuItems } from './MainItems';
+import { LogoutOutlined } from '@ant-design/icons'
+import { ConfigProvider, Menu } from 'antd'
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Route } from '../../Enums/Route'
+import { authAction } from '../../Modules/Auth'
+import { sidebarThemeConfig } from '../../utils/theme'
+import { menuItems } from './MainItems'
 
 const Sidebar: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const activeMenuKey = React.useMemo(
     () => window.location.pathname,
     [window.location.pathname],
-  );
+  )
 
   const defaultOpenedKey = React.useMemo(
     () =>
       menuItems.find((item) => {
         if ('children' in item) {
           const openedMenuItem = item.children?.find((chil) => {
-            return chil.key === activeMenuKey;
-          });
-          return openedMenuItem !== undefined;
+            return chil.key === activeMenuKey
+          })
+          return openedMenuItem !== undefined
         }
         return null
       })?.key as string,
     [menuItems, activeMenuKey],
-  );
+  )
 
   const handleLogout = (
     event:
       | React.MouseEvent<HTMLAnchorElement, MouseEvent>
       | React.KeyboardEvent<HTMLAnchorElement>,
   ) => {
-    event.preventDefault();
-    const isConfirm = confirm('Are you sure to logout? ');
+    event.preventDefault()
+    const isConfirm = confirm('Are you sure to logout? ')
     isConfirm && authAction.logout() && navigate(Route.Login)
-  };
+  }
 
   return (
     <>
@@ -67,10 +67,7 @@ const Sidebar: React.FC = () => {
           >
             <Menu.Divider />
             {/* Logout Button */}
-            <Menu.Item
-              key="logout"
-              icon={<LogoutOutlined />}
-            >
+            <Menu.Item key="logout" icon={<LogoutOutlined />}>
               <Link to="#" onClick={handleLogout}>
                 Logout
               </Link>
@@ -79,7 +76,7 @@ const Sidebar: React.FC = () => {
         </div>
       </ConfigProvider>
     </>
-  );
-};
+  )
+}
 
 export default Sidebar

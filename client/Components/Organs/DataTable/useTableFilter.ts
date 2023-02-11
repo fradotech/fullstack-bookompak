@@ -1,29 +1,30 @@
-import { IndexRequest } from "@server/infrastructure/index/index.request";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { IndexRequest } from '@server/infrastructure/index/index.request'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-type TOrderAntD = 'ASC' | 'DESC' | undefined;
+type TOrderAntD = 'ASC' | 'DESC' | undefined
 
 export type TPropsTableFilter<T> = Omit<IndexRequest, 'perPage' | 'order'> & {
-  per_page?: number;
-  order?: TOrderAntD;
-} & T;
-
+  per_page?: number
+  order?: TOrderAntD
+} & T
 
 export const useTableFilter = <T>() => {
   const navigate = useNavigate()
   const [status, setStatus] = React.useState({
     isFetching: false,
-  });
+  })
 
-  const [filters, setFilters] = React.useState<TPropsTableFilter<T> | any>(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const filtersObj = {};
-    for (const [key, value] of queryParams.entries()) {
-      filtersObj[key] = value;
-    }
-    return filtersObj;
-  });
+  const [filters, setFilters] = React.useState<TPropsTableFilter<T> | any>(
+    () => {
+      const queryParams = new URLSearchParams(window.location.search)
+      const filtersObj = {}
+      for (const [key, value] of queryParams.entries()) {
+        filtersObj[key] = value
+      }
+      return filtersObj
+    },
+  )
 
   const existingParams = React.useMemo(
     () =>
@@ -32,20 +33,20 @@ export const useTableFilter = <T>() => {
         {},
       ),
     [filters],
-  ) as TPropsTableFilter<T>;
+  ) as TPropsTableFilter<T>
 
   return {
     setQueryParams: (propsParams: TPropsTableFilter<T>) => {
       const data = {
         ...existingParams,
         ...propsParams,
-      } as TPropsTableFilter<T>;
+      } as TPropsTableFilter<T>
 
       if (data.order === undefined) {
-        delete data.sort;
+        delete data.sort
       }
 
-      const listPropsParams = Object.keys(propsParams) as string[];
+      const listPropsParams = Object.keys(propsParams) as string[]
 
       if (
         !(
@@ -59,14 +60,15 @@ export const useTableFilter = <T>() => {
             listPropsParams.includes('order')
           )
         ) {
-          data.page = 1;
+          data.page = 1
         }
       }
 
-      setFilters(data);
-      navigate(window.location.pathname);
+      setFilters(data)
+      navigate(window.location.pathname)
+      setStatus({ isFetching: true })
     },
     filters: filters as TPropsTableFilter<T>,
     status,
-  };
-};
+  }
+}

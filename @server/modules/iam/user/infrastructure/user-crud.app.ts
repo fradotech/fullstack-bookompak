@@ -6,7 +6,7 @@ import { IAppUser } from './user.interface'
 import {
   UserIndexRequest,
   UserRequest,
-  UserUpdateRequest
+  UserUpdateRequest,
 } from './user.request'
 import { UserService } from './user.service'
 

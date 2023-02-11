@@ -1,39 +1,40 @@
 export type RouteType = {
-    permissions: string[];
-    name: string;
-    href: string;
-    icon?: any;
-};
+  permissions: string[]
+  name: string
+  href: string
+  icon?: any
+}
 
 export type RouteListType = RouteType & {
-    items?: RouteType[];
-};
+  items?: RouteType[]
+}
 
 export const Route = {
-    // <--- IAM --->
+  // <--- IAM --->
 
-    Home: '/',
-    Dashboard: '/dashboard',
-    Login: '/auth/login',
-    Logout: '/auth/logout',
+  Home: '/',
+  Dashboard: '/dashboard',
+  Login: '/auth/login',
+  Logout: '/auth/logout',
 
-    Profile: '/profile',
-    ProfileEdit: '/profile/edit',
+  Profile: '/profile',
+  ProfileEdit: '/profile/edit',
 
-    Roles: '/roles',
+  Roles: '/roles',
 
-    User: '/users',
-    UserCreate: '/users/create',
-    EditUser: '/users/edit',
+  User: '/users',
+  UserDetail: '/users/:id',
+  UserCreate: '/users/create',
+  EditUser: '/users/edit',
 
-    // <--- Feature --->
+  // <--- Feature --->
 
-    Booking: '/bookings',
-    BookingCreate: '/bookings/create',
-    BookingEdit: '/bookings/edit',
-    BookingApproval: '/bookings/approval',
+  Booking: '/bookings',
+  BookingCreate: '/bookings/create',
+  BookingEdit: '/bookings/edit',
+  BookingApproval: '/bookings/approval',
 
-    Room: '/rooms',
-    RoomCreate: '/rooms/create',
-    RoomEdit: '/rooms/edit',
-};
+  Room: '/rooms',
+  RoomCreate: '/rooms/create',
+  RoomEdit: '/rooms/edit',
+}
