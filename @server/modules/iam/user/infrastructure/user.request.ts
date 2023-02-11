@@ -9,7 +9,7 @@ import {
   IsPhoneNumber,
   IsString,
   Matches,
-  MinLength
+  MinLength,
 } from 'class-validator'
 import { STRING_PASSWORD_CHARACTER } from '../common/character.constant'
 import { IAppUser } from '../infrastructure/user.interface'

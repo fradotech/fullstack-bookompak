@@ -6,7 +6,7 @@ import { IAppRoom } from './room.interface'
 import {
   RoomIndexRequest,
   RoomRequest,
-  RoomUpdateRequest
+  RoomUpdateRequest,
 } from './room.request'
 import { RoomService } from './room.service'
 

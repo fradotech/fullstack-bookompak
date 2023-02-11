@@ -7,7 +7,7 @@ import {
   Post,
   Put,
   Query,
-  UseGuards
+  UseGuards,
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { BaseCrudController } from '@server/infrastructure/base/base-crud.controller'
@@ -19,7 +19,7 @@ import { RoomCrudApp } from '../infrastructure/room-crud.app'
 import {
   RoomIndexRequest,
   RoomRequest,
-  RoomUpdateRequest
+  RoomUpdateRequest,
 } from '../infrastructure/room.request'
 import { RoomResponse } from '../infrastructure/room.response'
 

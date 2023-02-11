@@ -2,7 +2,7 @@ import {
   ExecutionContext,
   ForbiddenException,
   Injectable,
-  UnauthorizedException
+  UnauthorizedException,
 } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { ERole } from '@server/modules/iam/role/infrastructure/role.enum'

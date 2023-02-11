@@ -1,7 +1,7 @@
-import { BaseEntity } from "@server/infrastructure/base/base.entity";
-import { Column, Entity } from "typeorm";
-import { ERoomType } from "./room.enum";
-import { IAppRoom } from "./room.interface";
+import { BaseEntity } from '@server/infrastructure/base/base.entity'
+import { Column, Entity } from 'typeorm'
+import { ERoomType } from './room.enum'
+import { IAppRoom } from './room.interface'
 
 @Entity()
 export class AppRoom extends BaseEntity implements IAppRoom {
