@@ -3,7 +3,7 @@ import { Tag } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { RowActionButtons } from '../../Components/Molecules/RowActionButtons/RowActionButtons'
-import { Role } from '../../Enums/Role.enum'
+import { ERole } from '../../Enums/Role.enum'
 import { Route } from '../../Enums/Route'
 
 export const usersColumns: ColumnsType<UserResponse> = [
@@ -21,7 +21,7 @@ export const usersColumns: ColumnsType<UserResponse> = [
     title: 'Role',
     key: 'role',
     render: (data: UserResponse) => {
-      if (data.role == Role.Administrator)
+      if (data.role == ERole.Administrator)
         return <Tag color="blue">{data.role}</Tag>
 
       return <Tag color="green">{data.role}</Tag>

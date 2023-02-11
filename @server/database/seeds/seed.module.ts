@@ -1,5 +1,6 @@
 import { Logger } from '@nestjs/common'
 import { DataSourceOptions } from '../config.db'
+import { roomSeeder } from './rooms/rooms.seeder'
 import { userSeeder } from './users/user.seeder'
 
 export const seeders = async () => {
@@ -8,4 +9,5 @@ export const seeders = async () => {
     .catch((error) => Logger.error(error))
 
   await userSeeder()
+  await roomSeeder()
 }

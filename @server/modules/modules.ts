@@ -4,4 +4,6 @@ export enum Modules {
   Roles = 'roles',
   Profile = 'profile',
   Attachment = 'attachment',
+
+  Rooms = 'rooms',
 }

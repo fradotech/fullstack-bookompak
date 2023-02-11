@@ -1,4 +1,4 @@
-import { Role } from '../../role/infrastructure/role.enum'
+import { ERole } from '../../role/infrastructure/role.enum'
 import { IAppUser } from '../infrastructure/user.interface'
 
 export class UserResponse implements IAppUser {
@@ -6,7 +6,7 @@ export class UserResponse implements IAppUser {
   name: string
   email: string
   password: string
-  role: Role
+  role: ERole
   address: string
   phoneNumber: string
   avatar: string
