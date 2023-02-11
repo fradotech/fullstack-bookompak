@@ -8,7 +8,7 @@ const DescriptionContainer: React.FC<React.PropsWithChildren> = ({
   const { md } = Grid.useBreakpoint()
   return (
     <Descriptions
-      layout='horizontal'
+      layout="horizontal"
       bordered
       size={size}
       labelStyle={
@@ -23,7 +23,9 @@ const DescriptionContainer: React.FC<React.PropsWithChildren> = ({
           width: md && '30%',
         }
       }
-      column={props.column ? props.column : { xl: 1, lg: 1, md: 2, sm: 1, xs: 1 }}
+      column={
+        props.column ? props.column : { xl: 1, lg: 1, md: 2, sm: 1, xs: 1 }
+      }
       {...props}
     >
       {props.children}
