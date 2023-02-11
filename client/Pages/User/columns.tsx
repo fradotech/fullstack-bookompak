@@ -13,11 +13,6 @@ export const usersColumns: ColumnsType<UserResponse> = [
     key: 'name',
   },
   {
-    title: 'Phone Number',
-    dataIndex: 'phoneNumber',
-    key: 'phoneNumber',
-  },
-  {
     title: 'Email',
     dataIndex: 'email',
     key: 'email',
@@ -31,6 +26,11 @@ export const usersColumns: ColumnsType<UserResponse> = [
 
       return <Tag color="green">{data.role}</Tag>
     },
+  },
+  {
+    title: 'Phone Number',
+    dataIndex: 'phoneNumber',
+    key: 'phoneNumber',
   },
   {
     title: 'Action',

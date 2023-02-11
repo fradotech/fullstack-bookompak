@@ -6,7 +6,7 @@ import { IAppUser } from './user.interface'
 import {
   UserIndexRequest,
   UserRequest,
-  UserUpdateRequest,
+  UserUpdateRequest
 } from './user.request'
 import { UserService } from './user.service'
 
@@ -18,6 +18,7 @@ export class UserCrudApp {
   ) {}
 
   async fetch(req: UserIndexRequest): Promise<IPaginateResponse<IAppUser>> {
+    req.perPage = 10000
     const res = await this.userIndexApp.fetch(req)
     return res
   }
