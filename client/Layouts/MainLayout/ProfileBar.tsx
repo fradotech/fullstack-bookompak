@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { IAppUser } from '@server/src/modules/iam/user/infrastructure/user.interface';
+import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface';
 import {
   Avatar, Space, Typography
 } from 'antd';

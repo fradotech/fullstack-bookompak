@@ -1,4 +1,4 @@
-import { UserResponse } from "@server/src/modules/iam/user/infrastructure/user.response";
+import { UserResponse } from "@server/modules/iam/user/infrastructure/user.response";
 import { ColumnsType } from "antd/es/table";
 
 export const usersColumns: ColumnsType<UserResponse> = [

@@ -1,5 +1,5 @@
-import { IPaginationMeta } from '@server/src/infrastructure/index/index.interface';
-import { UserResponse } from '@server/src/modules/iam/user/infrastructure/user.response';
+import { IPaginationMeta } from '@server/infrastructure/index/index.interface';
+import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response';
 import React from "react";
 import DataTable from '../../Components/Organs/DataTable/DataTable';
 import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter';

@@ -1,6 +1,6 @@
-import { IPaginateResponse } from '@server/src/infrastructure/index/index.interface';
-import { UserIndexRequest } from '@server/src/modules/iam/user/infrastructure/user.request';
-import { UserResponse } from '@server/src/modules/iam/user/infrastructure/user.response';
+import { IPaginateResponse } from '@server/infrastructure/index/index.interface';
+import { UserIndexRequest } from '@server/modules/iam/user/infrastructure/user.request';
+import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response';
 import { Route } from '../Enums/Route';
 import { axiosAction } from './Axios';
 

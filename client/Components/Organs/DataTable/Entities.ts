@@ -1,6 +1,6 @@
 import type { TableProps } from 'antd/es/table';
 import { SorterResult } from 'antd/es/table/interface';
-import { IPaginationMeta } from './../../../../@server/src/infrastructure/index/index.interface';
+import { IPaginationMeta } from './../../../../@server/infrastructure/index/index.interface';
 
 export type TOrder = {
     order: 'ASC' | 'DESC' | undefined;

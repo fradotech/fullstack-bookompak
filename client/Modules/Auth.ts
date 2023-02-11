@@ -1,5 +1,5 @@
-import { AuthLoginRequest } from "@server/src/modules/iam/auth/infrastructure/auth.request";
-import { UserResponse } from "@server/src/modules/iam/user/infrastructure/user.response";
+import { AuthLoginRequest } from "@server/modules/iam/auth/infrastructure/auth.request";
+import { UserResponse } from "@server/modules/iam/user/infrastructure/user.response";
 import { Route } from "../Enums/Route";
 import { axiosAction } from "./Axios";
 

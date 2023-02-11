@@ -1,4 +1,4 @@
-import { IndexRequest } from "@server/src/infrastructure/index/index.request";
+import { IndexRequest } from "@server/infrastructure/index/index.request";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
