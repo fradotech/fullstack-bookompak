@@ -10,13 +10,14 @@ module.exports = (env, argv) => {
     devtool: devMode ? 'inline-source-map' : false,
     devServer: {
       contentBase: './dist',
+      historyApiFallback: true,
     },
     entry: './client/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].bundle.js',
       chunkFilename: '[id].js',
-      publicPath: '',
+      publicPath: '/',
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
