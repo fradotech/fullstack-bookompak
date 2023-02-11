@@ -26,13 +26,13 @@ export const RowActionButtons: React.FC<IRowActionProps> = ({ actions }) => {
     if (!icon) {
       switch (type) {
         case 'view':
-          icon = <EyeOutlined style={iconActionTableStyle} />
+          icon = <EyeOutlined style={{ color: 'green' }} />
           break
         case 'edit':
           icon = <EditOutlined style={iconActionTableStyle} />
           break
         case 'delete':
-          icon = <DeleteOutlined style={iconActionTableStyle} />
+          icon = <DeleteOutlined style={{ color: 'red' }} />
           break
         default:
           break

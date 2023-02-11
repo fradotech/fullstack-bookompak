@@ -17,7 +17,7 @@ const Users: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ; (async () => setProps(await userAction.fetch()))()
+    ;(async () => setProps(await userAction.fetch()))()
   }, [])
 
   return (

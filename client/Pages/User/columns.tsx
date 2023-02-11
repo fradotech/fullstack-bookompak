@@ -1,7 +1,9 @@
 import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { Tag } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { RowActionButtons } from '../../Components/Molecules/RowActionButtons/RowActionButtons'
+import { Role } from '../../Enums/Role.enum'
 import { Route } from '../../Enums/Route'
 
 export const usersColumns: ColumnsType<UserResponse> = [
@@ -22,13 +24,17 @@ export const usersColumns: ColumnsType<UserResponse> = [
   },
   {
     title: 'Role',
-    dataIndex: 'role',
     key: 'role',
+    render: (data: UserResponse) => {
+      if (data.role == Role.Administrator)
+        return <Tag color="blue">{data.role}</Tag>
+
+      return <Tag color="green">{data.role}</Tag>
+    },
   },
   {
     title: 'Action',
     key: 'action',
-    width: '150px',
     render: (data: UserResponse) => {
       return (
         <RowActionButtons
