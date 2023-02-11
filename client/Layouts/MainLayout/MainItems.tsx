@@ -25,8 +25,8 @@ export const menuItems: MenuItem[] = [
     icon: <DashboardOutlined />,
   },
   {
-    key: Route.Booking,
-    label: <Link to={Route.Booking}>Booking</Link>,
+    key: Route.Bookings,
+    label: <Link to={Route.Bookings}>Booking</Link>,
     icon: <ReconciliationOutlined />,
   },
   {
@@ -35,13 +35,13 @@ export const menuItems: MenuItem[] = [
     icon: <AuditOutlined />,
   },
   {
-    key: Route.Room,
-    label: <Link to={Route.Room}>Room</Link>,
+    key: Route.Rooms,
+    label: <Link to={Route.Rooms}>Room</Link>,
     icon: <MergeCellsOutlined />,
   },
   {
-    key: Route.User,
-    label: <Link to={Route.User}>User</Link>,
+    key: Route.Users,
+    label: <Link to={Route.Users}>User</Link>,
     icon: <UsergroupAddOutlined />,
   },
 ]

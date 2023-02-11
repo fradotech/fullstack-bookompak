@@ -1,19 +1,19 @@
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
-import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
 import { Descriptions, Space, Tag } from 'antd'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import DescriptionContainer from '../../Components/Molecules/DescriptionContainer/DescriptionContainer'
 import { Section } from '../../Components/Molecules/Section/Section'
 import { defaultSizeSpace } from '../../utils/theme'
-import { userAction } from './User.action'
+import { roomAction } from './Room.action'
 
-const UserDetail: React.FC = () => {
+const RoomDetail: React.FC = () => {
   const { id } = useParams()
-  const [props, setProps] = React.useState<IApiRes<UserResponse>>()
+  const [props, setProps] = React.useState<IApiRes<RoomResponse>>()
 
   React.useEffect(() => {
-    ;(async () => setProps(await userAction.findOne(id)))()
+    ;(async () => setProps(await roomAction.findOne(id)))()
   }, [])
 
   return (
@@ -28,17 +28,23 @@ const UserDetail: React.FC = () => {
           <Descriptions.Item label="Name">
             {props?.data?.name}
           </Descriptions.Item>
-          <Descriptions.Item label="Email">
-            {props?.data?.email}
+          <Descriptions.Item label="Number">
+            {props?.data?.number}
           </Descriptions.Item>
-          <Descriptions.Item label="Phone Number">
-            {props?.data?.phoneNumber}
+          <Descriptions.Item label="Type">
+            {props?.data?.type}
           </Descriptions.Item>
-          <Descriptions.Item label="Role">
-            <Tag>{props?.data?.role}</Tag>
+          <Descriptions.Item label="Is Ready">
+            <Tag>{props?.data?.isReady ? 'Yes' : 'No'}</Tag>
           </Descriptions.Item>
-          <Descriptions.Item label="Address">
-            {props?.data?.address}
+          <Descriptions.Item label="Location">
+            {props?.data?.location}
+          </Descriptions.Item>
+          <Descriptions.Item label="Description">
+            {props?.data?.description}
+          </Descriptions.Item>
+          <Descriptions.Item label="Updated At">
+            {props?.data?.updatedAt.toString()}
           </Descriptions.Item>
         </DescriptionContainer>
       </Section>
@@ -46,4 +52,4 @@ const UserDetail: React.FC = () => {
   )
 }
 
-export default UserDetail
+export default RoomDetail

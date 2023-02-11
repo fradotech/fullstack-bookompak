@@ -19,12 +19,10 @@ export class RoomRequest implements IAppRoom {
   @ApiProperty({ example: '12345' })
   number: string
 
-  @IsNotEmpty()
   @IsBoolean()
   @ApiProperty({ example: true })
   isReady: boolean
 
-  @IsNotEmpty()
   @IsEnum(ERoomType)
   @ApiProperty({ example: ERoomType.Biasa })
   type: ERoomType

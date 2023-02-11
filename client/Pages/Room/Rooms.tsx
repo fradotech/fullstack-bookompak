@@ -1,13 +1,15 @@
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
-import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
+import { Button } from 'antd'
 import React from 'react'
 import DataTable from '../../Components/Organs/DataTable/DataTable'
 import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter'
-import { userAction } from './User.action'
-import { usersColumns } from './Users.columns'
+import { Route } from '../../Enums/Route'
+import { roomAction } from './Room.action'
+import { roomsColumns } from './Rooms.columns'
 
-const Users: React.FC = () => {
-  const [props, setProps] = React.useState<IPaginateResponse<UserResponse>>()
+const Rooms: React.FC = () => {
+  const [props, setProps] = React.useState<IPaginateResponse<RoomResponse>>()
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
   const {
     setQueryParams,
@@ -17,14 +19,23 @@ const Users: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ;(async () => setProps(await userAction.fetch()))()
+    ;(async () => setProps(await roomAction.fetch()))()
   }, [])
 
   return (
     <>
+      <Button
+        type="primary"
+        href={Route.RoomCreate}
+        style={{
+          float: 'right',
+        }}
+      >
+        Create
+      </Button>
       <DataTable
         rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
-        columns={usersColumns}
+        columns={roomsColumns}
         dataSource={props?.data?.map((item) => ({
           ...item,
           key: item.id,
@@ -39,4 +50,4 @@ const Users: React.FC = () => {
   )
 }
 
-export default Users
+export default Rooms

@@ -1,7 +1,7 @@
 import { AuthLoginRequest } from '@server/modules/iam/auth/infrastructure/auth.request'
 import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
-import { Route } from '../Enums/Route'
-import { axiosAction } from './Axios'
+import { Route } from '../../Enums/Route'
+import { axiosAction } from '../../services/axios.service'
 
 export const authAction = {
   loggedUser: (): UserResponse =>

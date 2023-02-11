@@ -37,4 +37,19 @@ export const axiosAction = {
       return error
     }
   },
+
+  delete: async (endpoint: string): Promise<any> => {
+    try {
+      const { data } = await axios.delete(`${host}${endpoint}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('_accessToken')}`,
+        },
+      })
+
+      return data
+    } catch (error) {
+      alert(error)
+      return error
+    }
+  },
 }

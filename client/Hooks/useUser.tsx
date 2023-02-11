@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Route } from '../Enums/Route'
-import { authAction } from '../Modules/Auth'
+import { authAction } from '../Pages/Auth/Auth.action'
 
 const useUser = () => {
   const navigate = useNavigate()

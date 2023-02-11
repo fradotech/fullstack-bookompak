@@ -22,19 +22,21 @@ export const Route = {
 
   Roles: '/roles',
 
-  User: '/users',
+  Users: '/users',
   UserDetail: '/users/:id',
   UserCreate: '/users/create',
   EditUser: '/users/edit',
 
   // <--- Feature --->
 
-  Booking: '/bookings',
+  Bookings: '/bookings',
   BookingCreate: '/bookings/create',
+  BookingDetail: '/bookings/:id',
   BookingEdit: '/bookings/edit',
   BookingApproval: '/bookings/approval',
 
-  Room: '/rooms',
+  Rooms: '/rooms',
   RoomCreate: '/rooms/create',
+  RoomDetail: '/rooms/:id',
   RoomEdit: '/rooms/edit',
 }

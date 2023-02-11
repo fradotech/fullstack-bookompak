@@ -1,3 +1,4 @@
+import { AuthLoginRequest } from '@server/modules/iam/auth/infrastructure/auth.request'
 import { Button, Form, Input } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -5,8 +6,8 @@ import * as yup from 'yup'
 import { FormContainer } from '../../Components/Organs/FormContainer'
 import { Route } from '../../Enums/Route'
 import useUser from '../../Hooks/useUser'
-import { authAction } from '../../Modules/Auth'
 import { createYupSync } from '../../utils/createYupSync'
+import { authAction } from './Auth.action'
 
 const schema: yup.Schema<any> = yup.object().shape({
   email: yup.string().required().email('Field Email wajib berformat email'),
@@ -17,7 +18,7 @@ const Login: React.FC = () => {
   useUser()
   const navigate = useNavigate()
   const yupSync = createYupSync(schema)
-  const [form] = Form.useForm()
+  const [form] = Form.useForm<AuthLoginRequest>()
   const [isLoading, setIsLoading] = React.useState(false)
 
   const onFinish = async () => {
@@ -54,11 +55,11 @@ const Login: React.FC = () => {
           </Button>,
         ]}
       >
-        <Form.Item label="Email" name="email" rules={[yupSync]} required>
+        <Form.Item label="Email" name="email" rules={[yupSync]}>
           <Input type="email" />
         </Form.Item>
 
-        <Form.Item label="Password" name="password" rules={[yupSync]} required>
+        <Form.Item label="Password" name="password" rules={[yupSync]}>
           <Input.Password type="password" />
         </Form.Item>
       </FormContainer>

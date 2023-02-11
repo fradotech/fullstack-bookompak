@@ -1,61 +1,62 @@
-import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
 import { Tag } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { RowActionButtons } from '../../Components/Molecules/RowActionButtons/RowActionButtons'
-import { ERole } from '../../Enums/Role.enum'
 import { Route } from '../../Enums/Route'
+import { roomAction } from './Room.action'
 
-export const usersColumns: ColumnsType<UserResponse> = [
+export const roomsColumns: ColumnsType<RoomResponse> = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: 'Email',
-    dataIndex: 'email',
-    key: 'email',
+    title: 'Number',
+    dataIndex: 'number',
+    key: 'number',
   },
   {
-    title: 'Role',
-    key: 'role',
-    render: (data: UserResponse) => {
-      if (data.role == ERole.Administrator)
-        return <Tag color="blue">{data.role}</Tag>
+    title: 'Is Ready',
+    key: 'isReady',
+    render: (data: RoomResponse) => {
+      if (data.isReady) return <Tag color="green">Yes</Tag>
 
-      return <Tag color="green">{data.role}</Tag>
+      return <Tag color="red">No</Tag>
     },
   },
   {
-    title: 'Phone Number',
-    dataIndex: 'phoneNumber',
-    key: 'phoneNumber',
+    title: 'Location',
+    dataIndex: 'location',
+    key: 'location',
   },
   {
     title: 'Action',
     key: 'action',
-    render: (data: UserResponse) => {
+    width: '130px',
+    render: (data: RoomResponse) => {
       return (
         <RowActionButtons
           actions={[
             {
               type: 'view',
-              href: `${Route.User}/${data.id}`,
+              href: `${Route.Rooms}/${data.id}`,
               title: 'view',
             },
             {
               type: 'edit',
               title: 'edit',
               onClick: () => {
-                alert('Tambah Fitur CRUD User?')
+                alert('Tambah Fitur CRUD Room?')
               },
             },
             {
               type: 'delete',
               title: 'delete',
               onClick: () => {
-                alert('Tambah Fitur CRUD User?')
+                const isConfirm = confirm('Yakin bang?')
+                isConfirm && roomAction.remove(data.id)
               },
             },
           ]}
