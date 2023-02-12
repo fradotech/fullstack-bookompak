@@ -2,8 +2,12 @@ import { AgendaResponse } from '@server/modules/feature/agenda/infrastructure/ag
 import { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { RowActionButtons } from '../../Components/Molecules/RowActionButtons/RowActionButtons'
+import { ERole } from '../../Enums/Role.enum'
 import { Route } from '../../Enums/Route'
+import { authAction } from '../Auth/Auth.action'
 import { agendaAction } from './Agenda.action'
+
+const user = authAction.loggedUser()
 
 export const agendasColumns: ColumnsType<AgendaResponse> = [
   {
@@ -52,7 +56,7 @@ export const agendasColumns: ColumnsType<AgendaResponse> = [
             //     alert('Tambah Fitur Update Agenda?')
             //   },
             // },
-            {
+            user.role == ERole.Administrator && {
               type: 'delete',
               title: 'delete',
               onClick: async () => {

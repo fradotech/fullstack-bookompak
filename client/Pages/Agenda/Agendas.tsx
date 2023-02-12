@@ -6,11 +6,15 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import DataTable from '../../Components/Organs/DataTable/DataTable'
 import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter'
+import { ERole } from '../../Enums/Role.enum'
 import { Route } from '../../Enums/Route'
+import { authAction } from '../Auth/Auth.action'
 import { agendaAction } from './Agenda.action'
 import { agendasColumns } from './Agendas.columns'
 
+
 const Agendas: React.FC = () => {
+  const user = authAction.loggedUser()
   const navigate = useNavigate()
   const [props, setProps] = React.useState<IPaginateResponse<AgendaResponse>>()
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
@@ -27,7 +31,7 @@ const Agendas: React.FC = () => {
 
   return (
     <>
-      <Button
+      {user.role == ERole.Administrator && <Button
         type="primary"
         onClick={() => {
           navigate(Route.AgendaCreate)
@@ -38,7 +42,7 @@ const Agendas: React.FC = () => {
       >
         <PlusCircleFilled />
         New Agenda
-      </Button>
+      </Button>}
       <DataTable
         rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
         columns={agendasColumns}

@@ -1,5 +1,5 @@
 import { RoomCreateRequest } from '@server/modules/feature/room/infrastructure/room.request'
-import { Button, Form, Input, Radio, Switch } from 'antd'
+import { Button, Form, Input, Switch } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
@@ -7,7 +7,6 @@ import { FormContainer } from '../../Components/Organs/FormContainer'
 import { Route } from '../../Enums/Route'
 import { createYupSync } from '../../utils/createYupSync'
 import { roomAction } from './Room.action'
-import { ERoomType } from './Room.enum'
 
 const schema: yup.Schema<any> = yup.object().shape({
   name: yup.string().required(),
@@ -68,17 +67,6 @@ const RoomForm: React.FC = () => {
 
         <Form.Item label="Is Ready" name="isReady" rules={[yupSync]} required>
           <Switch />
-        </Form.Item>
-
-        <Form.Item name="type" label="Gender">
-          <Radio.Group>
-            <Radio.Button name="type" value={ERoomType.Biasa}>
-              {ERoomType.Biasa}
-            </Radio.Button>
-            <Radio.Button name="type" value={ERoomType.LuarBiasa}>
-              {ERoomType.LuarBiasa}
-            </Radio.Button>
-          </Radio.Group>
         </Form.Item>
 
         <Form.Item label="Location" name="location" rules={[yupSync]} required>

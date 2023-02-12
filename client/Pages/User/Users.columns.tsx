@@ -53,13 +53,13 @@ export const usersColumns: ColumnsType<UserResponse> = [
             //     alert('Tambah Fitur Edit User?')
             //   },
             // },
-            {
-              type: 'delete',
-              title: 'delete',
-              onClick: () => {
-                alert('Tambah Fitur Delete User?')
-              },
-            },
+            // {
+            //   type: 'delete',
+            //   title: 'delete',
+            //   onClick: () => {
+            //     alert('Tambah Fitur Delete User?')
+            //   },
+            // },
           ]}
         />
       )
