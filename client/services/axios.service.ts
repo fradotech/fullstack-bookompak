@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const host = 'http://bookompak.up.railway.app/api/v1'
+const host = 'https://bookompak.up.railway.app/api/v1'
 
 export const axiosService = {
   get: async (endpoint: string, params?: any): Promise<any> => {
