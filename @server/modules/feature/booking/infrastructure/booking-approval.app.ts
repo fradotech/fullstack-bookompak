@@ -22,7 +22,10 @@ export class BookingApprovalApp {
     return await this.bookingIndexApp.fetch(req)
   }
 
-  async updateStatus(id: string, req: BookingApprovalRequest): Promise<IAppBooking> {
+  async updateStatus(
+    id: string,
+    req: BookingApprovalRequest,
+  ): Promise<IAppBooking> {
     const data = await this.bookingService.findOneOrFail(id)
     data.status = req.status
     return await this.bookingService.update(data)

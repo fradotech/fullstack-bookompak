@@ -28,7 +28,7 @@ const BookingForm: React.FC = () => {
   const { id } = useParams()
 
   React.useEffect(() => {
-    ; (async () => setProps(await roomAction.fetch()))()
+    ;(async () => setProps(await roomAction.fetch()))()
   }, [])
 
   const onFinish = async () => {

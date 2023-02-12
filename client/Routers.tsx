@@ -36,10 +36,16 @@ const Routers: React.FC = () => {
             <Route path={HttpRoute.RoomDetail} element={<RoomDetail />} />
 
             <Route path={HttpRoute.Bookings} element={<Bookings />} />
-            <Route path={HttpRoute.BookingCreateByRoom} element={<BookingForm />} />
+            <Route
+              path={HttpRoute.BookingCreateByRoom}
+              element={<BookingForm />}
+            />
             <Route path={HttpRoute.BookingCreate} element={<BookingForm />} />
             <Route path={HttpRoute.BookingDetail} element={<BookingDetail />} />
-            <Route path={HttpRoute.BookingsApproval} element={<BookingsApproval />} />
+            <Route
+              path={HttpRoute.BookingsApproval}
+              element={<BookingsApproval />}
+            />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

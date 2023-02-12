@@ -4,7 +4,9 @@ import { RoomIndexService } from './room-index.service'
 import { AppRoom } from './room.entity'
 import { IAppRoom } from './room.interface'
 import {
-  RoomCreateRequest, RoomIndexRequest, RoomUpdateRequest
+  RoomCreateRequest,
+  RoomIndexRequest,
+  RoomUpdateRequest,
 } from './room.request'
 import { RoomService } from './room.service'
 

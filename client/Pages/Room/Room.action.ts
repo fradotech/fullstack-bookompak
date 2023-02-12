@@ -1,7 +1,8 @@
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
 import {
-  RoomCreateRequest, RoomIndexRequest
+  RoomCreateRequest,
+  RoomIndexRequest,
 } from '@server/modules/feature/room/infrastructure/room.request'
 import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
 import { Route } from '../../Enums/Route'

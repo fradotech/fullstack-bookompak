@@ -3,7 +3,7 @@ import {
   DashboardOutlined,
   MergeCellsOutlined,
   ReconciliationOutlined,
-  UsergroupAddOutlined
+  UsergroupAddOutlined,
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { ERole } from '../../Enums/Role.enum'
@@ -35,25 +35,28 @@ const itemsRoleUser: MenuItem[] = [
   },
 ]
 
-const itemsRoleAdministrator: MenuItem[] = user?.role == ERole.Administrator ? [
-  {
-    key: Route.BookingsApproval,
-    label: <Link to={Route.BookingsApproval}>Booking Approval</Link>,
-    icon: <AuditOutlined />,
-  },
-  {
-    key: Route.Rooms,
-    label: <Link to={Route.Rooms}>Room</Link>,
-    icon: <MergeCellsOutlined />,
-  },
-  {
-    key: Route.Users,
-    label: <Link to={Route.Users}>User</Link>,
-    icon: <UsergroupAddOutlined />,
-  },
-] : []
+const itemsRoleAdministrator: MenuItem[] =
+  user?.role == ERole.Administrator
+    ? [
+        {
+          key: Route.BookingsApproval,
+          label: <Link to={Route.BookingsApproval}>Booking Approval</Link>,
+          icon: <AuditOutlined />,
+        },
+        {
+          key: Route.Rooms,
+          label: <Link to={Route.Rooms}>Room</Link>,
+          icon: <MergeCellsOutlined />,
+        },
+        {
+          key: Route.Users,
+          label: <Link to={Route.Users}>User</Link>,
+          icon: <UsergroupAddOutlined />,
+        },
+      ]
+    : []
 
 export const menuItems: MenuItem[] = [
   ...itemsRoleUser,
-  ...itemsRoleAdministrator
+  ...itemsRoleAdministrator,
 ]

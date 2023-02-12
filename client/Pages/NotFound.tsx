@@ -1,7 +1,7 @@
-import { Button, Result } from 'antd';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Route } from '../Enums/Route';
+import { Button, Result } from 'antd'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Route } from '../Enums/Route'
 
 const NotFound: React.FC = () => {
   const navigate = useNavigate()
@@ -11,8 +11,12 @@ const NotFound: React.FC = () => {
       status="404"
       title="404"
       subTitle="Sorry, the page you visited does not exist."
-      extra={<Button onClick={() => navigate(Route.Dashboard)} type="primary">Go To Dashboard</Button>}
+      extra={
+        <Button onClick={() => navigate(Route.Dashboard)} type="primary">
+          Go To Dashboard
+        </Button>
+      }
     />
-  );
+  )
 }
-export default NotFound;
+export default NotFound

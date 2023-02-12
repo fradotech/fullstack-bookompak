@@ -7,4 +7,5 @@ export enum Modules {
 
   Rooms = 'rooms',
   Bookings = 'bookings',
+  Agendas = 'agendas',
 }

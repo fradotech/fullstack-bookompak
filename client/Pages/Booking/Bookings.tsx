@@ -22,7 +22,7 @@ const Bookings: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ; (async () => setProps(await bookingAction.fetch()))()
+    ;(async () => setProps(await bookingAction.fetch()))()
   }, [])
 
   return (
@@ -37,7 +37,7 @@ const Bookings: React.FC = () => {
         Filter by Status
       </Button> */}
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           navigate(Route.BookingCreate)
         }}

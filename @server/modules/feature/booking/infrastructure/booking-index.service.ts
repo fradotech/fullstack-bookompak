@@ -19,7 +19,7 @@ export class BookingIndexService extends BaseIndexService {
     query: SelectQueryBuilder<IAppBooking>,
     req: BookingIndexRequest,
     tableName: string,
-    user?: IAppUser
+    user?: IAppUser,
   ): SelectQueryBuilder<IAppBooking> {
     req
 
@@ -40,7 +40,7 @@ export class BookingIndexService extends BaseIndexService {
 
   async fetch(
     req: BookingIndexRequest,
-    user?: IAppUser
+    user?: IAppUser,
   ): Promise<IPaginateResponse<IAppBooking>> {
     const tableName = AppBooking.name
     const tableKey = Object.keys(new AppBooking())
@@ -49,7 +49,7 @@ export class BookingIndexService extends BaseIndexService {
       this.bookingRepo.createQueryBuilder(tableName),
       req,
       tableName,
-      user
+      user,
     )
 
     req.search &&

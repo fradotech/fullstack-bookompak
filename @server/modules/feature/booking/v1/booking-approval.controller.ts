@@ -5,7 +5,7 @@ import {
   Param,
   Put,
   Query,
-  UseGuards
+  UseGuards,
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
@@ -15,7 +15,7 @@ import { Modules } from '@server/modules/modules'
 import { BookingApprovalApp } from '../infrastructure/booking-approval.app'
 import {
   BookingApprovalRequest,
-  BookingIndexRequest
+  BookingIndexRequest,
 } from '../infrastructure/booking.request'
 import { BookingResponse } from '../infrastructure/booking.response'
 

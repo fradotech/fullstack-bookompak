@@ -7,7 +7,7 @@ import { IAppBooking } from './booking.interface'
 import {
   BookingCreateRequest,
   BookingIndexRequest,
-  BookingUpdateRequest
+  BookingUpdateRequest,
 } from './booking.request'
 import { BookingService } from './booking.service'
 
@@ -20,7 +20,7 @@ export class BookingCrudApp {
 
   async fetch(
     req: BookingIndexRequest,
-    user?: IAppUser
+    user?: IAppUser,
   ): Promise<IPaginateResponse<IAppBooking>> {
     req.perPage = 10000
     const res = await this.bookingIndexApp.fetch(req, user)

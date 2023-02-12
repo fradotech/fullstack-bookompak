@@ -17,7 +17,7 @@ const BookingsApproval: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ; (async () => setProps(await bookingApprovalAction.fetch()))()
+    ;(async () => setProps(await bookingApprovalAction.fetch()))()
   }, [])
 
   return (

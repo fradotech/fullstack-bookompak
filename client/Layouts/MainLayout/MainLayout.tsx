@@ -40,9 +40,8 @@ const MainLayout: React.FC<IProps> = ({ children }: IProps) => {
             padding: '28px 24px',
             overflow: 'auto',
           }}
-        ><Section>
-            {children}
-          </Section>
+        >
+          <Section>{children}</Section>
         </Content>
       </Layout>
     </Layout>

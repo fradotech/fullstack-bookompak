@@ -16,58 +16,62 @@ import { ApiRes } from '@server/infrastructure/interfaces/api.response'
 import { AdminGuard } from '@server/modules/iam/auth/common/admin.guard'
 import { LoggedInGuard } from '@server/modules/iam/auth/common/logged-in.guard'
 import { Modules } from '@server/modules/modules'
-import { RoomCrudApp } from '../infrastructure/room-crud.app'
+import { AgendaCrudApp } from '../infrastructure/agenda-crud.app'
 import {
-  RoomCreateRequest,
-  RoomIndexRequest,
-  RoomUpdateRequest,
-} from '../infrastructure/room.request'
-import { RoomResponse } from '../infrastructure/room.response'
+  AgendaCreateRequest,
+  AgendaIndexRequest,
+  AgendaUpdateRequest,
+} from '../infrastructure/agenda.request'
+import { AgendaResponse } from '../infrastructure/agenda.response'
 
-const THIS_MODULE = Modules.Rooms
+const THIS_MODULE = Modules.Agendas
 
 @Controller(THIS_MODULE)
 @ApiTags(THIS_MODULE)
-export class RoomCrudController implements BaseCrudController {
-  constructor(private readonly roomCrudApp: RoomCrudApp) {}
+export class AgendaCrudController implements BaseCrudController {
+  constructor(private readonly roomCrudApp: AgendaCrudApp) {}
 
   @UseGuards(LoggedInGuard)
   @Get()
   async fetch(
-    @Query() req: RoomIndexRequest,
-  ): Promise<IApiRes<RoomResponse[]>> {
+    @Query() req: AgendaIndexRequest,
+  ): Promise<IApiRes<AgendaResponse[]>> {
     const res = await this.roomCrudApp.fetch(req)
-    return ApiRes.all(RoomResponse.fromEntities(res.data), res.meta)
+    return ApiRes.all(AgendaResponse.fromEntities(res.data), res.meta)
   }
 
   @UseGuards(AdminGuard)
   @Post()
-  async create(@Body() req: RoomCreateRequest): Promise<IApiRes<RoomResponse>> {
+  async create(
+    @Body() req: AgendaCreateRequest,
+  ): Promise<IApiRes<AgendaResponse>> {
     const data = await this.roomCrudApp.create(req)
-    return ApiRes.all(RoomResponse.fromEntity(data))
+    return ApiRes.all(AgendaResponse.fromEntity(data))
   }
 
   @UseGuards(LoggedInGuard)
   @Get(':id')
-  async findOneOrFail(@Param('id') id: string): Promise<IApiRes<RoomResponse>> {
+  async findOneOrFail(
+    @Param('id') id: string,
+  ): Promise<IApiRes<AgendaResponse>> {
     const data = await this.roomCrudApp.findOneOrFail(id)
-    return ApiRes.all(RoomResponse.fromEntity(data))
+    return ApiRes.all(AgendaResponse.fromEntity(data))
   }
 
   @UseGuards(AdminGuard)
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() req: RoomUpdateRequest,
-  ): Promise<IApiRes<RoomResponse>> {
+    @Body() req: AgendaUpdateRequest,
+  ): Promise<IApiRes<AgendaResponse>> {
     const data = await this.roomCrudApp.update(id, req)
-    return ApiRes.all(RoomResponse.fromEntity(data))
+    return ApiRes.all(AgendaResponse.fromEntity(data))
   }
 
   @UseGuards(AdminGuard)
   @Delete(':id')
-  async delete(@Param('id') id: string): Promise<IApiRes<RoomResponse>> {
+  async delete(@Param('id') id: string): Promise<IApiRes<AgendaResponse>> {
     const data = await this.roomCrudApp.remove(id)
-    return ApiRes.all(RoomResponse.fromEntity(data))
+    return ApiRes.all(AgendaResponse.fromEntity(data))
   }
 }

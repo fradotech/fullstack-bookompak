@@ -60,10 +60,9 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               onClick: async () => {
                 const isConfirm = confirm('Yakin?')
                 if (isConfirm) {
-                  (await bookingApprovalAction.updateStatus(data.id, {
-                    status: EBookingStatus.Approve
-                  })) &&
-                    location.reload()
+                  ;(await bookingApprovalAction.updateStatus(data.id, {
+                    status: EBookingStatus.Approve,
+                  })) && location.reload()
                 }
               },
             },
@@ -73,10 +72,9 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               onClick: async () => {
                 const isConfirm = confirm('Yakin?')
                 if (isConfirm) {
-                  (await bookingApprovalAction.updateStatus(data.id, {
-                    status: EBookingStatus.Reject
-                  })) &&
-                    location.reload()
+                  ;(await bookingApprovalAction.updateStatus(data.id, {
+                    status: EBookingStatus.Reject,
+                  })) && location.reload()
                 }
               },
             },

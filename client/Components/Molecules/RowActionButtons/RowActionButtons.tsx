@@ -1,4 +1,10 @@
-import { CheckCircleOutlined, CloseCircleOutlined, DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons'
+import {
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  DeleteOutlined,
+  EditOutlined,
+  EyeOutlined,
+} from '@ant-design/icons'
 import { Button, Space, Tooltip } from 'antd'
 import React from 'react'
 import { iconActionTableStyle } from '../../../utils/theme'

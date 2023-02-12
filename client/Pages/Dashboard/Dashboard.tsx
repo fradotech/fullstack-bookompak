@@ -10,17 +10,19 @@ const Dashboard: React.FC = () => {
   const [props, setProps] = React.useState<IPaginateResponse<RoomResponse>>()
 
   React.useEffect(() => {
-    ; (async () => setProps(await roomAction.fetch()))()
+    ;(async () => setProps(await roomAction.fetch()))()
   }, [])
 
   return (
     <Row gutter={16}>
       {props?.data?.map((data) => {
-        return <CardImage
-          title={data.name}
-          description={data.description}
-          href={`${Route.BookingCreate}/${data.id}`}
-        />
+        return (
+          <CardImage
+            title={data.name}
+            description={data.description}
+            href={`${Route.BookingCreate}/${data.id}`}
+          />
+        )
       })}
     </Row>
   )

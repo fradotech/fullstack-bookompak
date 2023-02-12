@@ -14,7 +14,7 @@ const BookingDetail: React.FC = () => {
   const [props, setProps] = React.useState<IApiRes<BookingResponse>>()
 
   React.useEffect(() => {
-    ; (async () => setProps(await bookingAction.findOne(id)))()
+    ;(async () => setProps(await bookingAction.findOne(id)))()
   }, [])
 
   return (
