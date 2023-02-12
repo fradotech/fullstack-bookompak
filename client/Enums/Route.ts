@@ -31,6 +31,7 @@ export const Route = {
 
   Bookings: '/bookings',
   BookingCreate: '/bookings/create',
+  BookingCreateByRoom: '/bookings/create/:id',
   BookingDetail: '/bookings/:id',
   BookingEdit: '/bookings/edit',
   BookingsApproval: '/bookings/approval',

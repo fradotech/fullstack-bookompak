@@ -3,7 +3,7 @@ import { BookingCreateRequest } from '@server/modules/feature/booking/infrastruc
 import { Button, DatePicker, DatePickerProps, Form, Input, Select } from 'antd'
 import { RangePickerProps } from 'antd/es/date-picker'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import * as yup from 'yup'
 import { RoomResponse } from '../../../@server/modules/feature/room/infrastructure/room.response'
 import { FormContainer } from '../../Components/Organs/FormContainer'
@@ -25,9 +25,10 @@ const BookingForm: React.FC = () => {
   const [form] = Form.useForm<BookingCreateRequest>()
   const [isLoading, setIsLoading] = React.useState(false)
   const [date, setDate] = React.useState<Date[]>()
+  const { id } = useParams()
 
   React.useEffect(() => {
-    ;(async () => setProps(await roomAction.fetch()))()
+    ; (async () => setProps(await roomAction.fetch()))()
   }, [])
 
   const onFinish = async () => {
@@ -47,13 +48,25 @@ const BookingForm: React.FC = () => {
     }
   }
 
+  const convertLabel = (data: RoomResponse) => {
+    return `${data?.number} - ${data?.name} - ${data?.location}`
+  }
+
   const optionsRooms = React.useMemo(() => {
     return props?.data.map((data) => {
       return {
-        label: `${data.number} - ${data.name} - ${data.location}`,
+        label: convertLabel(data),
         value: JSON.stringify(data),
       }
     })
+  }, [props])
+
+  React.useMemo(() => {
+    const data = props?.data?.find((data) => {
+      return data.id == id
+    })
+
+    id && form.setFieldValue('room', convertLabel(data))
   }, [props])
 
   const onOk = (

@@ -1,5 +1,6 @@
 import { Layout } from 'antd'
 import React from 'react'
+import { Section } from '../../Components/Molecules/Section/Section'
 import useUser from '../../Hooks/useUser'
 import ProfileBar from './ProfileBar'
 import Sidebar from './Sidebar'
@@ -39,8 +40,9 @@ const MainLayout: React.FC<IProps> = ({ children }: IProps) => {
             padding: '28px 24px',
             overflow: 'auto',
           }}
-        >
-          {children}
+        ><Section>
+            {children}
+          </Section>
         </Content>
       </Layout>
     </Layout>
