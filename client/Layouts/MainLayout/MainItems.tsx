@@ -3,7 +3,8 @@ import {
   DashboardOutlined,
   MergeCellsOutlined,
   ReconciliationOutlined,
-  UsergroupAddOutlined,
+  ScheduleOutlined,
+  UsergroupAddOutlined
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { ERole } from '../../Enums/Role.enum'
@@ -29,6 +30,11 @@ const itemsRoleUser: MenuItem[] = [
     icon: <DashboardOutlined />,
   },
   {
+    key: Route.Agendas,
+    label: <Link to={Route.Agendas}>Agenda</Link>,
+    icon: <ScheduleOutlined />,
+  },
+  {
     key: Route.Bookings,
     label: <Link to={Route.Bookings}>Booking</Link>,
     icon: <ReconciliationOutlined />,
@@ -38,22 +44,22 @@ const itemsRoleUser: MenuItem[] = [
 const itemsRoleAdministrator: MenuItem[] =
   user?.role == ERole.Administrator
     ? [
-        {
-          key: Route.BookingsApproval,
-          label: <Link to={Route.BookingsApproval}>Booking Approval</Link>,
-          icon: <AuditOutlined />,
-        },
-        {
-          key: Route.Rooms,
-          label: <Link to={Route.Rooms}>Room</Link>,
-          icon: <MergeCellsOutlined />,
-        },
-        {
-          key: Route.Users,
-          label: <Link to={Route.Users}>User</Link>,
-          icon: <UsergroupAddOutlined />,
-        },
-      ]
+      {
+        key: Route.BookingsApproval,
+        label: <Link to={Route.BookingsApproval}>Booking Approval</Link>,
+        icon: <AuditOutlined />,
+      },
+      {
+        key: Route.Rooms,
+        label: <Link to={Route.Rooms}>Room</Link>,
+        icon: <MergeCellsOutlined />,
+      },
+      {
+        key: Route.Users,
+        label: <Link to={Route.Users}>User</Link>,
+        icon: <UsergroupAddOutlined />,
+      },
+    ]
     : []
 
 export const menuItems: MenuItem[] = [

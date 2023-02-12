@@ -28,7 +28,10 @@ const CardImage: React.FC<IProps> = (props: IProps) => {
       }
       onClick={() => navigate(props.href)}
     >
-      <Meta title={props.title} description={props.description} />
+      <Meta
+        title={props.title}
+        description={props.description}
+      />
     </Card>
   )
 }

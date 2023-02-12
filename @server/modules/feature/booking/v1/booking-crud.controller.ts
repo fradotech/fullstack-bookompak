@@ -7,14 +7,13 @@ import {
   Post,
   Put,
   Query,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { BaseCrudController } from '@server/infrastructure/base/base-crud.controller'
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
 import { ApiRes } from '@server/infrastructure/interfaces/api.response'
 import { LoggedInGuard } from '@server/modules/iam/auth/common/logged-in.guard'
-import { ERole } from '@server/modules/iam/role/infrastructure/role.enum'
 import { GetUserLogged } from '@server/modules/iam/user/common/get-user-logged.decorator'
 import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
 import { Modules } from '@server/modules/modules'
@@ -22,7 +21,7 @@ import { BookingCrudApp } from '../infrastructure/booking-crud.app'
 import {
   BookingCreateRequest,
   BookingIndexRequest,
-  BookingUpdateRequest,
+  BookingUpdateRequest
 } from '../infrastructure/booking.request'
 import { BookingResponse } from '../infrastructure/booking.response'
 
@@ -39,10 +38,7 @@ export class BookingCrudController implements BaseCrudController {
     @Query() req: BookingIndexRequest,
     @GetUserLogged() user: IAppUser,
   ): Promise<IApiRes<BookingResponse[]>> {
-    const res = await this.roomCrudApp.fetch(
-      req,
-      user.role == ERole.User ? user : null,
-    )
+    const res = await this.roomCrudApp.fetch(req, user)
     return ApiRes.all(BookingResponse.fromEntities(res.data), res.meta)
   }
 

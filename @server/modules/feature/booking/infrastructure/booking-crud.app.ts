@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
+import { ERole } from '@server/modules/iam/role/infrastructure/role.enum'
 import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
 import { BookingIndexService } from './booking-index.service'
 import { AppBooking } from './booking.entity'
@@ -7,7 +8,7 @@ import { IAppBooking } from './booking.interface'
 import {
   BookingCreateRequest,
   BookingIndexRequest,
-  BookingUpdateRequest,
+  BookingUpdateRequest
 } from './booking.request'
 import { BookingService } from './booking.service'
 
@@ -23,7 +24,10 @@ export class BookingCrudApp {
     user?: IAppUser,
   ): Promise<IPaginateResponse<IAppBooking>> {
     req.perPage = 10000
-    const res = await this.bookingIndexApp.fetch(req, user)
+    const res = await this.bookingIndexApp.fetch(
+      req,
+      user.role == ERole.User ? user : null,
+    )
     return res
   }
 

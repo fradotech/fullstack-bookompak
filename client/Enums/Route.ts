@@ -25,13 +25,17 @@ export const Route = {
   Users: '/users',
   UserDetail: '/users/:id',
   UserCreate: '/users/create',
-  EditUser: '/users/edit',
+  UserEdit: '/users/edit',
 
   // <--- Feature --->
 
+  Agendas: '/agendas',
+  AgendaCreate: '/agendas/create',
+  AgendaDetail: '/agendas/:id',
+  AgendaEdit: '/agendas/edit',
+
   Bookings: '/bookings',
   BookingCreate: '/bookings/create',
-  BookingCreateByRoom: '/bookings/create/:id',
   BookingDetail: '/bookings/:id',
   BookingEdit: '/bookings/edit',
   BookingsApproval: '/bookings/approval',
