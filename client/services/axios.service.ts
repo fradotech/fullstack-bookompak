@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const host = 'http://localhost:3000/api/v1'
 
-export const axiosAction = {
+export const axiosService = {
   get: async (endpoint: string, params?: any): Promise<any> => {
     try {
       const { data } = await axios.get(`${host}${endpoint}`, {
@@ -26,6 +26,25 @@ export const axiosAction = {
   ): Promise<any> => {
     try {
       const { data } = await axios.post(`${host}${endpoint}`, dataPost, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('_accessToken')}`,
+        },
+      })
+
+      return data
+    } catch (error) {
+      isCatch && alert(error)
+      return error
+    }
+  },
+
+  put: async (
+    endpoint: string,
+    dataPost?: any,
+    isCatch?: boolean,
+  ): Promise<any> => {
+    try {
+      const { data } = await axios.put(`${host}${endpoint}`, dataPost, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('_accessToken')}`,
         },

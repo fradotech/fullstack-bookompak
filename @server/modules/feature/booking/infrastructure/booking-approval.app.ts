@@ -7,7 +7,7 @@ import { BookingApprovalRequest, BookingIndexRequest } from './booking.request'
 import { BookingService } from './booking.service'
 
 @Injectable()
-export class BookingCrudApp {
+export class BookingApprovalApp {
   constructor(
     private readonly bookingIndexApp: BookingIndexService,
     private readonly bookingService: BookingService,
@@ -22,7 +22,7 @@ export class BookingCrudApp {
     return await this.bookingIndexApp.fetch(req)
   }
 
-  async update(id: string, req: BookingApprovalRequest): Promise<IAppBooking> {
+  async updateStatus(id: string, req: BookingApprovalRequest): Promise<IAppBooking> {
     const data = await this.bookingService.findOneOrFail(id)
     data.status = req.status
     return await this.bookingService.update(data)

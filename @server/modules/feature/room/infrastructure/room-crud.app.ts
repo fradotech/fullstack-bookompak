@@ -4,9 +4,7 @@ import { RoomIndexService } from './room-index.service'
 import { AppRoom } from './room.entity'
 import { IAppRoom } from './room.interface'
 import {
-  RoomIndexRequest,
-  RoomRequest,
-  RoomUpdateRequest,
+  RoomCreateRequest, RoomIndexRequest, RoomUpdateRequest
 } from './room.request'
 import { RoomService } from './room.service'
 
@@ -23,7 +21,7 @@ export class RoomCrudApp {
     return res
   }
 
-  async create(req: RoomRequest): Promise<IAppRoom> {
+  async create(req: RoomCreateRequest): Promise<IAppRoom> {
     const data = new AppRoom()
     Object.assign(data, req)
 

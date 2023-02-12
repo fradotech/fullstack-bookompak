@@ -6,7 +6,7 @@ import { IAppRoom } from './room.interface'
 
 export class RoomIndexRequest extends IndexRequest {}
 
-export class RoomRequest implements IAppRoom {
+class RoomRequest implements IAppRoom {
   id: string
 
   @IsNotEmpty()
@@ -37,5 +37,7 @@ export class RoomRequest implements IAppRoom {
   @ApiProperty({ example: 'Bayar woy bayar' })
   description?: string
 }
+
+export class RoomCreateRequest extends PartialType(RoomRequest) {}
 
 export class RoomUpdateRequest extends PartialType(RoomRequest) {}

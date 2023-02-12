@@ -4,8 +4,8 @@ import { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { RowActionButtons } from '../../Components/Molecules/RowActionButtons/RowActionButtons'
 import { Route } from '../../Enums/Route'
-import { bookingAction } from './Booking.action'
-import { EBookingStatus } from './Booking.enum'
+import { EBookingStatus } from '../Booking/Booking.enum'
+import { bookingApprovalAction } from './BookingApproval.action'
 
 export const bookingsColumns: ColumnsType<BookingResponse> = [
   {
@@ -55,20 +55,29 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               title: 'view',
             },
             {
-              type: 'edit',
-              title: 'edit',
-              onClick: () => {
-                alert('Tambah Fitur Update Booking?')
+              type: 'check',
+              title: 'approve',
+              onClick: async () => {
+                const isConfirm = confirm('Yakin bang?')
+                if (isConfirm) {
+                  (await bookingApprovalAction.updateStatus(data.id, {
+                    status: EBookingStatus.Approve
+                  })) &&
+                    location.reload()
+                }
               },
             },
             {
-              type: 'delete',
-              title: 'delete',
+              type: 'close',
+              title: 'reject',
               onClick: async () => {
                 const isConfirm = confirm('Yakin bang?')
-                isConfirm &&
-                  (await bookingAction.remove(data.id)) &&
-                  location.reload()
+                if (isConfirm) {
+                  (await bookingApprovalAction.updateStatus(data.id, {
+                    status: EBookingStatus.Reject
+                  })) &&
+                    location.reload()
+                }
               },
             },
           ]}

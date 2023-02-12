@@ -1,9 +1,9 @@
-import { DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons'
+import { CheckCircleOutlined, CloseCircleOutlined, DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons'
 import { Button, Space, Tooltip } from 'antd'
 import React from 'react'
 import { iconActionTableStyle } from '../../../utils/theme'
 
-type ButtonType = 'view' | 'edit' | 'delete' | 'custom'
+type ButtonType = 'view' | 'edit' | 'delete' | 'check' | 'close'
 
 interface IRowActionButtonsProps {
   type?: ButtonType
@@ -34,6 +34,13 @@ export const RowActionButtons: React.FC<IRowActionProps> = ({ actions }) => {
         case 'delete':
           icon = <DeleteOutlined style={{ color: 'red' }} />
           break
+        case 'check':
+          icon = <CheckCircleOutlined style={{ color: 'green' }} />
+          break
+        case 'close':
+          icon = <CloseCircleOutlined style={{ color: 'red' }} />
+          break
+
         default:
           break
       }

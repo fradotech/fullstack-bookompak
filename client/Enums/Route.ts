@@ -33,7 +33,7 @@ export const Route = {
   BookingCreate: '/bookings/create',
   BookingDetail: '/bookings/:id',
   BookingEdit: '/bookings/edit',
-  BookingApproval: '/bookings/approval',
+  BookingsApproval: '/bookings/approval',
 
   Rooms: '/rooms',
   RoomCreate: '/rooms/create',

@@ -7,7 +7,7 @@ import {
   Post,
   Put,
   Query,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { BaseCrudController } from '@server/infrastructure/base/base-crud.controller'
@@ -17,9 +17,7 @@ import { AdminGuard } from '@server/modules/iam/auth/common/admin.guard'
 import { Modules } from '@server/modules/modules'
 import { RoomCrudApp } from '../infrastructure/room-crud.app'
 import {
-  RoomIndexRequest,
-  RoomRequest,
-  RoomUpdateRequest,
+  RoomCreateRequest, RoomIndexRequest, RoomUpdateRequest
 } from '../infrastructure/room.request'
 import { RoomResponse } from '../infrastructure/room.response'
 
@@ -40,7 +38,7 @@ export class RoomCrudController implements BaseCrudController {
   }
 
   @Post()
-  async create(@Body() req: RoomRequest): Promise<IApiRes<RoomResponse>> {
+  async create(@Body() req: RoomCreateRequest): Promise<IApiRes<RoomResponse>> {
     const data = await this.roomCrudApp.create(req)
     return ApiRes.all(RoomResponse.fromEntity(data))
   }

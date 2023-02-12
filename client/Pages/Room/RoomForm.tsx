@@ -1,4 +1,4 @@
-import { RoomRequest } from '@server/modules/feature/room/infrastructure/room.request'
+import { RoomCreateRequest } from '@server/modules/feature/room/infrastructure/room.request'
 import { Button, Form, Input, Radio, Switch } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -21,7 +21,7 @@ const schema: yup.Schema<any> = yup.object().shape({
 const RoomForm: React.FC = () => {
   const navigate = useNavigate()
   const yupSync = createYupSync(schema)
-  const [form] = Form.useForm<RoomRequest>()
+  const [form] = Form.useForm<RoomCreateRequest>()
   const [isLoading, setIsLoading] = React.useState(false)
 
   const onFinish = async () => {

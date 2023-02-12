@@ -3,7 +3,7 @@ import {
   DashboardOutlined,
   MergeCellsOutlined,
   ReconciliationOutlined,
-  UsergroupAddOutlined,
+  UsergroupAddOutlined
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 
@@ -30,8 +30,8 @@ export const menuItems: MenuItem[] = [
     icon: <ReconciliationOutlined />,
   },
   {
-    key: Route.BookingApproval,
-    label: <Link to={Route.BookingApproval}>Booking Approval</Link>,
+    key: Route.BookingsApproval,
+    label: <Link to={Route.BookingsApproval}>Booking Approval</Link>,
     icon: <AuditOutlined />,
   },
   {
