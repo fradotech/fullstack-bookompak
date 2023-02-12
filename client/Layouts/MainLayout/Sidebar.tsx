@@ -59,14 +59,12 @@ const Sidebar: React.FC = () => {
             selectedKeys={[activeMenuKey]}
           />
 
-          {/* Bottom Menu */}
           <Menu
             theme="light"
             style={{ backgroundColor: '#253DA1' }}
             mode="inline"
           >
             <Menu.Divider />
-            {/* Logout Button */}
             <Menu.Item key="logout" icon={<LogoutOutlined />}>
               <Link to="#" onClick={handleLogout}>
                 Logout
