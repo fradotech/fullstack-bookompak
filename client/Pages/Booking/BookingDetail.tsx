@@ -32,13 +32,13 @@ const BookingDetail: React.FC = () => {
           </Descriptions.Item>
 
           <Descriptions.Item label="User">
-            <Button href={`${Route.UserDetail}/${props?.data?.user.id}`}>
+            <Button href={`${Route.Users}/${props?.data?.user.id}`}>
               {props?.data?.user.name}
             </Button>
           </Descriptions.Item>
 
           <Descriptions.Item label="Room">
-            <Button href={`${Route.RoomDetail}/${props?.data?.room.id}`}>
+            <Button href={`${Route.Rooms}/${props?.data?.room.id}`}>
               {props?.data?.room.name}
             </Button>
           </Descriptions.Item>

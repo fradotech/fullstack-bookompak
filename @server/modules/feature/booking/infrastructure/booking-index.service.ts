@@ -1,4 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm'
+import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
 import { Repository, SelectQueryBuilder } from 'typeorm'
 import { IPaginateResponse } from '../../../../infrastructure/index/index.interface'
 import { BaseIndexService } from '../../../../infrastructure/index/index.service'
@@ -18,10 +19,16 @@ export class BookingIndexService extends BaseIndexService {
     query: SelectQueryBuilder<IAppBooking>,
     req: BookingIndexRequest,
     tableName: string,
+    user?: IAppUser
   ): SelectQueryBuilder<IAppBooking> {
     req
 
     query.leftJoinAndSelect(`${tableName}.user`, 'user')
+
+    user &&
+      query.andWhere(`user.id = :userId`, {
+        userId: user.id,
+      })
 
     req.filterStatus &&
       query.andWhere(`${tableName}.status = :status`, {
@@ -33,6 +40,7 @@ export class BookingIndexService extends BaseIndexService {
 
   async fetch(
     req: BookingIndexRequest,
+    user?: IAppUser
   ): Promise<IPaginateResponse<IAppBooking>> {
     const tableName = AppBooking.name
     const tableKey = Object.keys(new AppBooking())
@@ -41,6 +49,7 @@ export class BookingIndexService extends BaseIndexService {
       this.bookingRepo.createQueryBuilder(tableName),
       req,
       tableName,
+      user
     )
 
     req.search &&
