@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 import { FormContainer } from '../../Components/Organs/FormContainer'
 import { Route } from '../../Enums/Route'
-import useUser from '../../Hooks/useUser'
 import { createYupSync } from '../../utils/createYupSync'
 import { authAction } from './Auth.action'
 
@@ -15,7 +14,7 @@ const schema: yup.Schema<any> = yup.object().shape({
 })
 
 const Login: React.FC = () => {
-  useUser()
+  const user = authAction.loggedUser()
   const navigate = useNavigate()
   const yupSync = createYupSync(schema)
   const [form] = Form.useForm<AuthLoginRequest>()
@@ -28,12 +27,14 @@ const Login: React.FC = () => {
     try {
       await form.validateFields()
       const user = await authAction.login(data)
-      user && navigate(Route.Dashboard)
+      user && location.replace(Route.Dashboard)
       setIsLoading(false)
     } catch (e) {
       setIsLoading(false)
     }
   }
+
+  user && navigate(Route.Dashboard)
 
   return (
     <>
