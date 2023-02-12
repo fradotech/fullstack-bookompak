@@ -1,8 +1,10 @@
 import { RoomRequest } from '@server/modules/feature/room/infrastructure/room.request'
 import { Button, Form, Input, Radio, Switch } from 'antd'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 import { FormContainer } from '../../Components/Organs/FormContainer'
+import { Route } from '../../Enums/Route'
 import { createYupSync } from '../../utils/createYupSync'
 import { roomAction } from './Room.action'
 import { ERoomType } from './Room.enum'
@@ -17,6 +19,7 @@ const schema: yup.Schema<any> = yup.object().shape({
 })
 
 const RoomForm: React.FC = () => {
+  const navigate = useNavigate()
   const yupSync = createYupSync(schema)
   const [form] = Form.useForm<RoomRequest>()
   const [isLoading, setIsLoading] = React.useState(false)
@@ -29,7 +32,7 @@ const RoomForm: React.FC = () => {
       await form.validateFields()
       const res = await roomAction.create(data)
       res && alert('Success create ' + data.name)
-      setIsLoading(false)
+      navigate(Route.Rooms)
     } catch (e) {
       setIsLoading(false)
     }

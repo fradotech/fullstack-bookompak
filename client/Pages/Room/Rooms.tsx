@@ -5,6 +5,7 @@ import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
 import { Button } from 'antd'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import DataTable from '../../Components/Organs/DataTable/DataTable'
 import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter'
 import { Route } from '../../Enums/Route'
@@ -12,6 +13,7 @@ import { roomAction } from './Room.action'
 import { roomsColumns } from './Rooms.columns'
 
 const Rooms: React.FC = () => {
+  const navigate = useNavigate()
   const [props, setProps] = React.useState<IPaginateResponse<RoomResponse>>()
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
   const {
@@ -29,7 +31,7 @@ const Rooms: React.FC = () => {
     <>
       <Button
         type="primary"
-        href={Route.RoomCreate}
+        onClick={() => { navigate(Route.RoomCreate) }}
         style={{
           float: 'right',
         }}

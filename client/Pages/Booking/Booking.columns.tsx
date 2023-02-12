@@ -10,8 +10,8 @@ import { EBookingStatus } from './Booking.enum'
 export const bookingsColumns: ColumnsType<BookingResponse> = [
   {
     title: 'User Name',
-    dataIndex: 'user.name',
     key: 'user.name',
+    render: (data: BookingResponse) => data.user?.name || '-',
   },
   {
     title: 'Goal',
@@ -19,19 +19,14 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
     key: 'goal',
   },
   {
-    title: 'Description',
-    dataIndex: 'description',
-    key: 'description',
-  },
-  {
     title: 'Start At',
-    dataIndex: 'startAt',
     key: 'startAt',
+    render: (data: BookingResponse) => data.startAt.toString(),
   },
   {
     title: 'End At',
-    dataIndex: 'endAt',
     key: 'endAt',
+    render: (data: BookingResponse) => data.endAt.toString(),
   },
   {
     title: 'Status',
@@ -69,9 +64,9 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
             {
               type: 'delete',
               title: 'delete',
-              onClick: () => {
+              onClick: async () => {
                 const isConfirm = confirm('Yakin bang?')
-                isConfirm && bookingAction.remove(data.id)
+                isConfirm && await bookingAction.remove(data.id) && location.reload()
               },
             },
           ]}

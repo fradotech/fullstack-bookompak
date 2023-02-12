@@ -54,9 +54,9 @@ export const roomsColumns: ColumnsType<RoomResponse> = [
             {
               type: 'delete',
               title: 'delete',
-              onClick: () => {
+              onClick: async () => {
                 const isConfirm = confirm('Yakin bang?')
-                isConfirm && roomAction.remove(data.id)
+                isConfirm && await roomAction.remove(data.id) && location.reload()
               },
             },
           ]}

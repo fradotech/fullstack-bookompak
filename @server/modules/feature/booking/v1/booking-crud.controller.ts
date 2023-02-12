@@ -14,6 +14,8 @@ import { BaseCrudController } from '@server/infrastructure/base/base-crud.contro
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
 import { ApiRes } from '@server/infrastructure/interfaces/api.response'
 import { AdminGuard } from '@server/modules/iam/auth/common/admin.guard'
+import { GetUserLogged } from '@server/modules/iam/user/common/get-user-logged.decorator'
+import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
 import { Modules } from '@server/modules/modules'
 import { BookingCrudApp } from '../infrastructure/booking-crud.app'
 import {
@@ -40,8 +42,11 @@ export class BookingCrudController implements BaseCrudController {
   }
 
   @Post()
-  async create(@Body() req: BookingRequest): Promise<IApiRes<BookingResponse>> {
-    const data = await this.roomCrudApp.create(req)
+  async create(
+    @GetUserLogged() user: IAppUser,
+    @Body() req: BookingRequest
+  ): Promise<IApiRes<BookingResponse>> {
+    const data = await this.roomCrudApp.create(req, user)
     return ApiRes.all(BookingResponse.fromEntity(data))
   }
 

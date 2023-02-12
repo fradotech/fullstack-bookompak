@@ -10,8 +10,9 @@ export class BookingResponse extends PartialType(AppBooking) {
     const res = new BookingResponse()
 
     res.id = data.id
-    res.user = UserResponse.fromEntity(data.user)
+    res.user = data.user ? UserResponse.fromEntity(data.user) : null
     res.room = data.room
+    res.status = data.status
     res.goal = data.goal
     res.description = data.description
     res.startAt = data.startAt

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
+import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
 import { BookingIndexService } from './booking-index.service'
 import { AppBooking } from './booking.entity'
 import { IAppBooking } from './booking.interface'
@@ -23,9 +24,10 @@ export class BookingCrudApp {
     return res
   }
 
-  async create(req: BookingRequest): Promise<IAppBooking> {
+  async create(req: BookingRequest, user: IAppUser): Promise<IAppBooking> {
     const data = new AppBooking()
     Object.assign(data, req)
+    data.user = user
 
     return await this.bookingService.create(data)
   }
