@@ -45,13 +45,14 @@ export const usersColumns: ColumnsType<UserResponse> = [
               href: `${Route.Users}/${data.id}`,
               title: 'view',
             },
-            {
-              type: 'edit',
-              title: 'edit',
-              onClick: () => {
-                alert('Tambah Fitur Edit User?')
-              },
-            },
+            /* TODO: Enable */
+            // {
+            //   type: 'edit',
+            //   title: 'edit',
+            //   onClick: () => {
+            //     alert('Tambah Fitur Edit User?')
+            //   },
+            // },
             {
               type: 'delete',
               title: 'delete',

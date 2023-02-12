@@ -54,13 +54,14 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               href: `${Route.Bookings}/${data.id}`,
               title: 'view',
             },
-            {
-              type: 'edit',
-              title: 'edit',
-              onClick: () => {
-                alert('Tambah Fitur Update Booking?')
-              },
-            },
+            /* TODO: Enable */
+            // {
+            //   type: 'edit',
+            //   title: 'edit',
+            //   onClick: () => {
+            //     alert('Tambah Fitur Update Booking?')
+            //   },
+            // },
             {
               type: 'delete',
               title: 'delete',

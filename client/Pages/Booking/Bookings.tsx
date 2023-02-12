@@ -1,4 +1,4 @@
-import { FilterOutlined, PlusCircleFilled } from '@ant-design/icons'
+import { PlusCircleFilled } from '@ant-design/icons'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { BookingResponse } from '@server/modules/feature/booking/infrastructure/booking.response'
 import { Button } from 'antd'
@@ -27,14 +27,15 @@ const Bookings: React.FC = () => {
 
   return (
     <>
-      <Button
+      {/* TODO: Enable */}
+      {/* <Button
         onClick={() => {
           alert('Tambah fitur filter status?')
         }}
       >
         <FilterOutlined />
         Filter by Status
-      </Button>
+      </Button> */}
       <Button
         type='primary'
         onClick={() => {

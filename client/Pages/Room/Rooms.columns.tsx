@@ -44,13 +44,14 @@ export const roomsColumns: ColumnsType<RoomResponse> = [
               href: `${Route.Rooms}/${data.id}`,
               title: 'view',
             },
-            {
-              type: 'edit',
-              title: 'edit',
-              onClick: () => {
-                alert('Tambah Fitur Update Room?')
-              },
-            },
+            /* TODO: Enable */
+            // {
+            //   type: 'edit',
+            //   title: 'edit',
+            //   onClick: () => {
+            //     alert('Tambah Fitur Update Room?')
+            //   },
+            // },
             {
               type: 'delete',
               title: 'delete',
