@@ -14,6 +14,7 @@ import { BaseCrudController } from '@server/infrastructure/base/base-crud.contro
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
 import { ApiRes } from '@server/infrastructure/interfaces/api.response'
 import { AdminGuard } from '@server/modules/iam/auth/common/admin.guard'
+import { LoggedInGuard } from '@server/modules/iam/auth/common/logged-in.guard'
 import { Modules } from '@server/modules/modules'
 import { RoomCrudApp } from '../infrastructure/room-crud.app'
 import {
@@ -25,10 +26,10 @@ const THIS_MODULE = Modules.Rooms
 
 @Controller(THIS_MODULE)
 @ApiTags(THIS_MODULE)
-@UseGuards(AdminGuard)
 export class RoomCrudController implements BaseCrudController {
   constructor(private readonly roomCrudApp: RoomCrudApp) {}
 
+  @UseGuards(LoggedInGuard)
   @Get()
   async fetch(
     @Query() req: RoomIndexRequest,
@@ -37,18 +38,21 @@ export class RoomCrudController implements BaseCrudController {
     return ApiRes.all(RoomResponse.fromEntities(res.data), res.meta)
   }
 
+  @UseGuards(AdminGuard)
   @Post()
   async create(@Body() req: RoomCreateRequest): Promise<IApiRes<RoomResponse>> {
     const data = await this.roomCrudApp.create(req)
     return ApiRes.all(RoomResponse.fromEntity(data))
   }
 
+  @UseGuards(LoggedInGuard)
   @Get(':id')
   async findOneOrFail(@Param('id') id: string): Promise<IApiRes<RoomResponse>> {
     const data = await this.roomCrudApp.findOneOrFail(id)
     return ApiRes.all(RoomResponse.fromEntity(data))
   }
 
+  @UseGuards(AdminGuard)
   @Put(':id')
   async update(
     @Param('id') id: string,
@@ -58,6 +62,7 @@ export class RoomCrudController implements BaseCrudController {
     return ApiRes.all(RoomResponse.fromEntity(data))
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   async delete(@Param('id') id: string): Promise<IApiRes<RoomResponse>> {
     const data = await this.roomCrudApp.remove(id)
