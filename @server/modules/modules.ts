@@ -6,4 +6,5 @@ export enum Modules {
   Attachment = 'attachment',
 
   Rooms = 'rooms',
+  Bookings = 'bookings',
 }

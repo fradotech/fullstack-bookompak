@@ -1,5 +1,5 @@
 import {
-  PlusOutlined
+  PlusCircleFilled
 } from '@ant-design/icons'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
@@ -34,7 +34,7 @@ const Rooms: React.FC = () => {
           float: 'right',
         }}
       >
-        <PlusOutlined />
+        <PlusCircleFilled />
         New Room
       </Button>
       <DataTable
