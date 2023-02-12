@@ -64,15 +64,15 @@ const AgendaForm: React.FC = () => {
           </Button>,
         ]}
       >
-        <Form.Item label="Name" name="name" rules={[yupSync]}>
+        <Form.Item label="Name" name="name" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Location" name="location" rules={[yupSync]}>
+        <Form.Item label="Location" name="location" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[yupSync]}>
+        <Form.Item label="Description" name="description" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 

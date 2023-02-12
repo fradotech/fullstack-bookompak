@@ -82,7 +82,7 @@ const BookingForm: React.FC = () => {
           </Button>,
         ]}
       >
-        <Form.Item name="room" label="Room">
+        <Form.Item name="room" label="Room" required>
           <Select
             showSearch
             placeholder="Select Room"
@@ -94,11 +94,11 @@ const BookingForm: React.FC = () => {
           />
         </Form.Item>
 
-        <Form.Item label="Goal" name="goal" rules={[yupSync]}>
+        <Form.Item label="Goal" name="goal" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[yupSync]}>
+        <Form.Item label="Description" name="description" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 

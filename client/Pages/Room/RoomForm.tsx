@@ -58,15 +58,15 @@ const RoomForm: React.FC = () => {
           </Button>,
         ]}
       >
-        <Form.Item label="Name" name="name" rules={[yupSync]}>
+        <Form.Item label="Name" name="name" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Number" name="number" rules={[yupSync]}>
+        <Form.Item label="Number" name="number" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Is Ready" name="isReady" rules={[yupSync]}>
+        <Form.Item label="Is Ready" name="isReady" rules={[yupSync]} required>
           <Switch />
         </Form.Item>
 
@@ -81,11 +81,11 @@ const RoomForm: React.FC = () => {
           </Radio.Group>
         </Form.Item>
 
-        <Form.Item label="Location" name="location" rules={[yupSync]}>
+        <Form.Item label="Location" name="location" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[yupSync]}>
+        <Form.Item label="Description" name="description" rules={[yupSync]} required>
           <Input />
         </Form.Item>
       </FormContainer>

@@ -6,6 +6,7 @@ import AgendaDetail from './Pages/Agenda/AgendaDetail'
 import AgendaForm from './Pages/Agenda/AgendaForm'
 import Agendas from './Pages/Agenda/Agendas'
 import Login from './Pages/Auth/Login'
+import Register from './Pages/Auth/Register'
 import BookingDetail from './Pages/Booking/BookingDetail'
 import BookingForm from './Pages/Booking/BookingForm'
 import Bookings from './Pages/Booking/Bookings'
@@ -24,6 +25,7 @@ const Routers: React.FC = () =>
       <Routes>
         {/* <Route path={HttpRoute.Home} element={<Home />} /> */}
         <Route path={HttpRoute.Login} element={<Login />} />
+        <Route path={HttpRoute.Register} element={<Register />} />
       </Routes>
 
       <MainLayout>

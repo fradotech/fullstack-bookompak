@@ -15,6 +15,7 @@ export const Route = {
   Home: '/',
   Dashboard: '/dashboard',
   Login: '/auth/login',
+  Register: '/auth/register',
   Logout: '/auth/logout',
 
   Profile: '/profile',
