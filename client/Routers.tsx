@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Route as HttpRoute } from './Enums/Route'
 import MainLayout from './Layouts/MainLayout/MainLayout'
 import Login from './Pages/Auth/Login'
+import Bookings from './Pages/Booking/Booking'
+import BookingDetail from './Pages/Booking/BookingDetail'
+import BookingForm from './Pages/Booking/BookingForm'
 import Dashboard from './Pages/Dashboard/Dashboard'
 import NotFound from './Pages/NotFound'
 import RoomDetail from './Pages/Room/RoomDetail'
@@ -30,6 +33,10 @@ const Routers: React.FC = () => {
             <Route path={HttpRoute.Rooms} element={<Rooms />} />
             <Route path={HttpRoute.RoomCreate} element={<RoomForm />} />
             <Route path={HttpRoute.RoomDetail} element={<RoomDetail />} />
+
+            <Route path={HttpRoute.Bookings} element={<Bookings />} />
+            <Route path={HttpRoute.BookingCreate} element={<BookingForm />} />
+            <Route path={HttpRoute.BookingDetail} element={<BookingDetail />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
