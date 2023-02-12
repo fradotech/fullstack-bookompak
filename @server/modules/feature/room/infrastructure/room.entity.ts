@@ -1,6 +1,6 @@
 import { BaseEntity } from '@server/infrastructure/base/base.entity'
 import { Column, Entity } from 'typeorm'
-import { ERoomType } from './room.enum'
+import { ERoomType } from '../common/room.enum'
 import { IAppRoom } from './room.interface'
 
 @Entity()

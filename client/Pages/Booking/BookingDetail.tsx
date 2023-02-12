@@ -14,7 +14,7 @@ const BookingDetail: React.FC = () => {
   const [props, setProps] = React.useState<IApiRes<BookingResponse>>()
 
   React.useEffect(() => {
-    ; (async () => setProps(await bookingAction.findOne(id)))()
+    ;(async () => setProps(await bookingAction.findOne(id)))()
   }, [])
 
   return (
@@ -58,7 +58,6 @@ const BookingDetail: React.FC = () => {
           <Descriptions.Item label="Updated At">
             {props?.data?.updatedAt.toString()}
           </Descriptions.Item>
-
         </DescriptionContainer>
       </Section>
     </Space>

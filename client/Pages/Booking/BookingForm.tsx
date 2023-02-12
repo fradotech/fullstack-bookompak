@@ -1,5 +1,5 @@
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
-import { BookingRequest } from '@server/modules/feature/booking/infrastructure/booking.request'
+import { BookingCreateRequest } from '@server/modules/feature/booking/infrastructure/booking.request'
 import { Button, DatePicker, DatePickerProps, Form, Input, Select } from 'antd'
 import { RangePickerProps } from 'antd/es/date-picker'
 import React from 'react'
@@ -22,12 +22,12 @@ const BookingForm: React.FC = () => {
   const navigate = useNavigate()
   const [props, setProps] = React.useState<IPaginateResponse<RoomResponse>>()
   const yupSync = createYupSync(schema)
-  const [form] = Form.useForm<BookingRequest>()
+  const [form] = Form.useForm<BookingCreateRequest>()
   const [isLoading, setIsLoading] = React.useState(false)
   const [date, setDate] = React.useState<Date[]>()
 
   React.useEffect(() => {
-    ; (async () => setProps(await roomAction.fetch()))()
+    ;(async () => setProps(await roomAction.fetch()))()
   }, [])
 
   const onFinish = async () => {
@@ -51,14 +51,16 @@ const BookingForm: React.FC = () => {
     return props?.data.map((data) => {
       return {
         label: `${data.number} - ${data.name} - ${data.location}`,
-        value: JSON.stringify(data)
+        value: JSON.stringify(data),
       }
     })
   }, [props])
 
-  const onOk = (value: DatePickerProps['value'] | RangePickerProps['value']) => {
+  const onOk = (
+    value: DatePickerProps['value'] | RangePickerProps['value'],
+  ) => {
     setDate([value[0].toDate(), value[1].toDate()])
-  };
+  }
 
   return (
     <>

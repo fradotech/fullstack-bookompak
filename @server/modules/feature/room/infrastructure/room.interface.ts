@@ -1,5 +1,5 @@
 import { IBaseEntity } from '../../../../infrastructure/base/base-entity.interface'
-import { ERoomType } from './room.enum'
+import { ERoomType } from '../common/room.enum'
 
 export interface IAppRoom extends IBaseEntity {
   name: string

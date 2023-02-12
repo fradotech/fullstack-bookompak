@@ -1,6 +1,4 @@
-import {
-  PlusCircleFilled
-} from '@ant-design/icons'
+import { PlusCircleFilled } from '@ant-design/icons'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
 import { Button } from 'antd'
@@ -24,14 +22,16 @@ const Rooms: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ; (async () => setProps(await roomAction.fetch()))()
+    ;(async () => setProps(await roomAction.fetch()))()
   }, [])
 
   return (
     <>
       <Button
         type="primary"
-        onClick={() => { navigate(Route.RoomCreate) }}
+        onClick={() => {
+          navigate(Route.RoomCreate)
+        }}
         style={{
           float: 'right',
         }}

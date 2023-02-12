@@ -1,6 +1,4 @@
-import {
-  PlusCircleFilled
-} from '@ant-design/icons'
+import { PlusCircleFilled } from '@ant-design/icons'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { BookingResponse } from '@server/modules/feature/booking/infrastructure/booking.response'
 import { Button } from 'antd'
@@ -24,14 +22,16 @@ const Bookings: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ; (async () => setProps(await bookingAction.fetch()))()
+    ;(async () => setProps(await bookingAction.fetch()))()
   }, [])
 
   return (
     <>
       <Button
         type="primary"
-        onClick={() => { navigate(Route.RoomCreate) }}
+        onClick={() => {
+          navigate(Route.RoomCreate)
+        }}
         style={{
           float: 'right',
         }}

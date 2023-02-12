@@ -17,24 +17,30 @@ export class BookingIndexService extends BaseIndexService {
   additionalQuery(
     query: SelectQueryBuilder<IAppBooking>,
     req: BookingIndexRequest,
-    tableName: string
+    tableName: string,
   ): SelectQueryBuilder<IAppBooking> {
     req
 
-    query
-      .leftJoinAndSelect(`${tableName}.user`, 'user')
+    query.leftJoinAndSelect(`${tableName}.user`, 'user')
+
+    req.filterStatus &&
+      query.andWhere(`${tableName}.status = :status`, {
+        status: req.filterStatus,
+      })
 
     return query
   }
 
-  async fetch(req: BookingIndexRequest): Promise<IPaginateResponse<IAppBooking>> {
+  async fetch(
+    req: BookingIndexRequest,
+  ): Promise<IPaginateResponse<IAppBooking>> {
     const tableName = AppBooking.name
     const tableKey = Object.keys(new AppBooking())
 
     const query = this.additionalQuery(
       this.bookingRepo.createQueryBuilder(tableName),
       req,
-      tableName
+      tableName,
     )
 
     req.search &&

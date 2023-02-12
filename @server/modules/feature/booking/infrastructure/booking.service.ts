@@ -24,14 +24,14 @@ export class BookingService implements BaseService {
   async findOne(id: string): Promise<IAppBooking> {
     return await this.bookingRepo.findOne({
       where: { id },
-      relations: ['user', 'room']
+      relations: ['user', 'room'],
     })
   }
 
   async findOneOrFail(id: string): Promise<IAppBooking> {
     return await this.bookingRepo.findOneOrFail({
       where: { id },
-      relations: ['user', 'room']
+      relations: ['user', 'room'],
     })
   }
 

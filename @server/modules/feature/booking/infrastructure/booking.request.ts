@@ -1,17 +1,26 @@
-import { ApiProperty, PartialType } from '@nestjs/swagger'
+import { ApiProperty, OmitType, PartialType, PickType } from '@nestjs/swagger'
 import { IndexRequest } from '@server/infrastructure/index/index.request'
-import { IsDate, IsNotEmpty, IsObject, IsString } from 'class-validator'
+import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
+import { AppAttachment } from '@server/modules/support/attachment/infrastructure/attachment.entity'
+import { IAppAttachment } from '@server/modules/support/attachment/infrastructure/attachment.interface'
+import { IsDate, IsEnum, IsNotEmpty, IsObject, IsString } from 'class-validator'
 import { AppRoom } from '../../room/infrastructure/room.entity'
 import { IAppRoom } from '../../room/infrastructure/room.interface'
+import { EBookingStatus } from '../common/booking.enum'
 import { IAppBooking } from './booking.interface'
 
-export class BookingIndexRequest extends IndexRequest {}
+export class BookingIndexRequest extends IndexRequest {
+  filterStatus: EBookingStatus
+}
 
-export class BookingRequest implements Omit<IAppBooking,
-  'user' |
-  'status'
-> {
+class BookingRequest implements IAppBooking {
   id: string
+  user: IAppUser
+
+  @IsNotEmpty()
+  @IsEnum(EBookingStatus)
+  @ApiProperty({ example: 'Push sampai glory' })
+  status: EBookingStatus
 
   @IsNotEmpty()
   @IsObject()
@@ -38,11 +47,20 @@ export class BookingRequest implements Omit<IAppBooking,
   @ApiProperty({ example: new Date() })
   endAt: Date
 
-  // @IsNotEmpty()
-  // @IsString()
-  // @ApiProperty({ example: 'Nanang' })
-  // attachment: IAppAttachment
-
+  @IsNotEmpty()
+  @IsObject()
+  @ApiProperty({ example: new AppAttachment() })
+  attachment: IAppAttachment
 }
 
-export class BookingUpdateRequest extends PartialType(BookingRequest) {}
+export class BookingCreateRequest extends OmitType(BookingRequest, [
+  'user',
+  'status',
+  'attachment',
+]) {}
+
+export class BookingUpdateRequest extends PartialType(BookingCreateRequest) {}
+
+export class BookingApprovalRequest extends PickType(BookingRequest, [
+  'status',
+]) {}

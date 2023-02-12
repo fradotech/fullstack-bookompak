@@ -13,7 +13,7 @@ const RoomDetail: React.FC = () => {
   const [props, setProps] = React.useState<IApiRes<RoomResponse>>()
 
   React.useEffect(() => {
-    ; (async () => setProps(await roomAction.findOne(id)))()
+    ;(async () => setProps(await roomAction.findOne(id)))()
   }, [])
 
   return (
@@ -53,7 +53,6 @@ const RoomDetail: React.FC = () => {
           <Descriptions.Item label="Updated At">
             {props?.data?.updatedAt.toString()}
           </Descriptions.Item>
-
         </DescriptionContainer>
       </Section>
     </Space>

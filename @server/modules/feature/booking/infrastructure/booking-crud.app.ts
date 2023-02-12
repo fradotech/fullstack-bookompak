@@ -5,9 +5,9 @@ import { BookingIndexService } from './booking-index.service'
 import { AppBooking } from './booking.entity'
 import { IAppBooking } from './booking.interface'
 import {
+  BookingCreateRequest,
   BookingIndexRequest,
-  BookingRequest,
-  BookingUpdateRequest
+  BookingUpdateRequest,
 } from './booking.request'
 import { BookingService } from './booking.service'
 
@@ -18,13 +18,18 @@ export class BookingCrudApp {
     private readonly bookingService: BookingService,
   ) {}
 
-  async fetch(req: BookingIndexRequest): Promise<IPaginateResponse<IAppBooking>> {
+  async fetch(
+    req: BookingIndexRequest,
+  ): Promise<IPaginateResponse<IAppBooking>> {
     req.perPage = 10000
     const res = await this.bookingIndexApp.fetch(req)
     return res
   }
 
-  async create(req: BookingRequest, user: IAppUser): Promise<IAppBooking> {
+  async create(
+    req: BookingCreateRequest,
+    user: IAppUser,
+  ): Promise<IAppBooking> {
     const data = new AppBooking()
     Object.assign(data, req)
     data.user = user

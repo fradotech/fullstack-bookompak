@@ -1,7 +1,7 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger'
 import { IndexRequest } from '@server/infrastructure/index/index.request'
 import { IsBoolean, IsEnum, IsNotEmpty, IsString } from 'class-validator'
-import { ERoomType } from './room.enum'
+import { ERoomType } from '../common/room.enum'
 import { IAppRoom } from './room.interface'
 
 export class RoomIndexRequest extends IndexRequest {}

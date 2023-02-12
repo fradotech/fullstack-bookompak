@@ -1,4 +1,4 @@
-import { ERoomType } from '@server/modules/feature/room/infrastructure/room.enum'
+import { ERoomType } from '@server/modules/feature/room/common/room.enum'
 
 export const roomsDummies = [
   {

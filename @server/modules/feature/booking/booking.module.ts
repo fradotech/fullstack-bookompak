@@ -6,11 +6,12 @@ import { BookingCrudApp } from './infrastructure/booking-crud.app'
 import { BookingIndexService } from './infrastructure/booking-index.service'
 import { AppBooking } from './infrastructure/booking.entity'
 import { BookingService } from './infrastructure/booking.service'
+import { BookingApprovalController } from './v1/booking-approval.controller'
 import { BookingCrudController } from './v1/booking-crud.controller'
 
 @Module({
   imports: [TypeOrmModule.forFeature([AppBooking]), AuthModule, HttpModule],
-  controllers: [BookingCrudController],
+  controllers: [BookingApprovalController, BookingCrudController],
   providers: [BookingService, BookingCrudApp, BookingIndexService],
   exports: [BookingService],
 })
