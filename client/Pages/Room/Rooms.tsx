@@ -1,3 +1,6 @@
+import {
+  PlusOutlined
+} from '@ant-design/icons'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { RoomResponse } from '@server/modules/feature/room/infrastructure/room.response'
 import { Button } from 'antd'
@@ -19,7 +22,7 @@ const Rooms: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ;(async () => setProps(await roomAction.fetch()))()
+    ; (async () => setProps(await roomAction.fetch()))()
   }, [])
 
   return (
@@ -31,7 +34,8 @@ const Rooms: React.FC = () => {
           float: 'right',
         }}
       >
-        Create
+        <PlusOutlined />
+        New Room
       </Button>
       <DataTable
         rowSelection={{ selectedRowKeys, onChange: onSelectChange }}

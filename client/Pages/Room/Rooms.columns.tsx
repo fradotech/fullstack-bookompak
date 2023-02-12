@@ -48,7 +48,7 @@ export const roomsColumns: ColumnsType<RoomResponse> = [
               type: 'edit',
               title: 'edit',
               onClick: () => {
-                alert('Tambah Fitur CRUD Room?')
+                alert('Tambah Fitur Update Room?')
               },
             },
             {

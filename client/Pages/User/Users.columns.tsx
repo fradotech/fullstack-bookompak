@@ -49,14 +49,14 @@ export const usersColumns: ColumnsType<UserResponse> = [
               type: 'edit',
               title: 'edit',
               onClick: () => {
-                alert('Tambah Fitur CRUD User?')
+                alert('Tambah Fitur Edit User?')
               },
             },
             {
               type: 'delete',
               title: 'delete',
               onClick: () => {
-                alert('Tambah Fitur CRUD User?')
+                alert('Tambah Fitur Delete User?')
               },
             },
           ]}
