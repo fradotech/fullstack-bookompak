@@ -7,13 +7,13 @@ import {
   Post,
   Put,
   Query,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { BaseCrudController } from '@server/infrastructure/base/base-crud.controller'
 import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
 import { ApiRes } from '@server/infrastructure/interfaces/api.response'
-import { AdminGuard } from '@server/modules/iam/auth/common/admin.guard'
+import { LoggedInGuard } from '@server/modules/iam/auth/common/logged-in.guard'
 import { GetUserLogged } from '@server/modules/iam/user/common/get-user-logged.decorator'
 import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface'
 import { Modules } from '@server/modules/modules'
@@ -21,7 +21,7 @@ import { BookingCrudApp } from '../infrastructure/booking-crud.app'
 import {
   BookingCreateRequest,
   BookingIndexRequest,
-  BookingUpdateRequest,
+  BookingUpdateRequest
 } from '../infrastructure/booking.request'
 import { BookingResponse } from '../infrastructure/booking.response'
 
@@ -29,7 +29,7 @@ const THIS_MODULE = Modules.Bookings
 
 @Controller(THIS_MODULE)
 @ApiTags(THIS_MODULE)
-@UseGuards(AdminGuard)
+@UseGuards(LoggedInGuard)
 export class BookingCrudController implements BaseCrudController {
   constructor(private readonly roomCrudApp: BookingCrudApp) {}
 

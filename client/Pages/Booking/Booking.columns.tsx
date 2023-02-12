@@ -65,7 +65,7 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               type: 'delete',
               title: 'delete',
               onClick: async () => {
-                const isConfirm = confirm('Yakin bang?')
+                const isConfirm = confirm('Yakin?')
                 isConfirm &&
                   (await bookingAction.remove(data.id)) &&
                   location.reload()

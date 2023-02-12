@@ -1,5 +1,7 @@
+import { PlusCircleFilled } from '@ant-design/icons'
 import { IPaginateResponse } from '@server/infrastructure/index/index.interface'
 import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
+import { Button } from 'antd'
 import React from 'react'
 import DataTable from '../../Components/Organs/DataTable/DataTable'
 import { useTableFilter } from '../../Components/Organs/DataTable/useTableFilter'
@@ -17,11 +19,23 @@ const Users: React.FC = () => {
     setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ;(async () => setProps(await userAction.fetch()))()
+    ; (async () => setProps(await userAction.fetch()))()
   }, [])
 
   return (
     <>
+      <Button
+        type="primary"
+        onClick={() => {
+          alert('Tambah Fitur Create User?')
+        }}
+        style={{
+          float: 'right',
+        }}
+      >
+        <PlusCircleFilled />
+        New User
+      </Button>
       <DataTable
         rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
         columns={usersColumns}
