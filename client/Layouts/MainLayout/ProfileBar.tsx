@@ -3,7 +3,6 @@ import { IAppUser } from '@server/modules/iam/user/infrastructure/user.interface
 import { Avatar, Space, Typography } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Route } from '../../Enums/Route'
 
 type IProps = {
   children?: React.ReactNode
@@ -28,7 +27,7 @@ const ProfileBar: React.FC<IProps> = (props: IProps) => {
         marginBottom: '20px',
       }}
     >
-      <Link to={Route.Profile}>
+      <Link to='#'>
         <Space size="small">
           <Avatar size="default" icon={<UserOutlined />} />
 
