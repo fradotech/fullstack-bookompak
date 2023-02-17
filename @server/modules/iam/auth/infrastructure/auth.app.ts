@@ -11,7 +11,7 @@ import {
   AuthChangePasswordRequest,
   AuthEmailRequest,
   AuthLoginRequest,
-  AuthRegisterRequest,
+  AuthRegisterRequest
 } from './auth.request'
 import { AuthService } from './auth.service'
 
@@ -26,7 +26,6 @@ export class AuthApp {
   async register(req: AuthRegisterRequest): Promise<IAppUser> {
     const user = new AppUser()
     Object.assign(user, req)
-
     return await this.userService.create(user)
   }
 

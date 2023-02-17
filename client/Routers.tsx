@@ -27,7 +27,9 @@ const Routers: React.FC = () =>
         <Route path={HttpRoute.Login} element={<Login />} />
         <Route path={HttpRoute.Register} element={<Register />} />
       </Routes>
+    </BrowserRouter>
 
+    <BrowserRouter>
       <MainLayout>
         <Routes>
           {/* <--- Dashboard ---> */}

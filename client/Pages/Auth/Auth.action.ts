@@ -1,3 +1,4 @@
+import { IApiRes } from '@server/infrastructure/interfaces/api-responses.interface'
 import { AuthLoginRequest, AuthRegisterRequest } from '@server/modules/iam/auth/infrastructure/auth.request'
 import { UserResponse } from '@server/modules/iam/user/infrastructure/user.response'
 import { Route } from '../../Enums/Route'
@@ -16,8 +17,10 @@ export const authAction = {
     return user
   },
 
-  register: async (req: AuthRegisterRequest): Promise<UserResponse> => {
-    return await axiosService.post(Route.Register, req)
+  register: async (req: AuthRegisterRequest): Promise<IApiRes<UserResponse>> => {
+    const res = await axiosService.post(Route.Register, req)
+    !res.data && alert(res.response.data.message)
+    return res
   },
 
   logout: (): boolean => {

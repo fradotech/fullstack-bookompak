@@ -1,5 +1,6 @@
 import { AuthLoginRequest } from '@server/modules/iam/auth/infrastructure/auth.request'
 import { Button, Form, Input, Space } from 'antd'
+import Title from 'antd/es/typography/Title'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
@@ -41,25 +42,33 @@ const Login: React.FC = () => {
     <Space
       direction="vertical"
       size={defaultSizeSpace}
-      style={{ width: '100%' }}
-    >      <FormContainer
-      onFinish={onFinish}
-      form={form}
-      layout="vertical"
-      centered
-      buttonAction={[
-        <Button
-          type="primary"
-          htmlType="submit"
-          disabled={
-            form.getFieldsError().filter(({ errors }) => errors.length)
-              .length > 0 && isLoading
-          }
-        >
-          Login
-        </Button>,
-      ]}
+      style={{ width: '100%', alignItems: 'center' }}
     >
+      <Title>Login</Title>
+      <FormContainer
+        style={{ width: '400px', alignItems: 'center', marginRight: '590px' }}
+        onFinish={onFinish}
+        form={form}
+        layout="vertical"
+        centered
+        buttonAction={[
+          <Button
+            href={Route.Register}
+          >
+            Belum punya akun? Register
+          </Button>,
+          <Button
+            type="primary"
+            htmlType="submit"
+            disabled={
+              form.getFieldsError().filter(({ errors }) => errors.length)
+                .length > 0 && isLoading
+            }
+          >
+            Login
+          </Button>,
+        ]}
+      >
         <Form.Item label="Email" name="email" rules={[yupSync]} required>
           <Input type="email" />
         </Form.Item>

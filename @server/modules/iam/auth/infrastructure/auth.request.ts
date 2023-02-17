@@ -1,14 +1,18 @@
 import { ApiProperty, PickType } from '@nestjs/swagger'
-import { IsNotEmpty } from 'class-validator'
+import { IsNotEmpty, IsString } from 'class-validator'
 import { Match } from '../../../../infrastructure/swagger/decorators/match.decorator'
 import { UserRequest } from '../../user/infrastructure/user.request'
 
 export class AuthRegisterRequest extends PickType(UserRequest, [
-  'name',
   'email',
   'password',
   'passwordConfirmation',
 ]) {
+  @IsNotEmpty()
+  @IsString()
+  @ApiProperty({ example: 'Frado' })
+  name: string
+
   @Match('password')
   passwordConfirmation!: string
 }

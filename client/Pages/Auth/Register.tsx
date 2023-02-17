@@ -1,5 +1,6 @@
 import { AuthRegisterRequest } from '@server/modules/iam/auth/infrastructure/auth.request'
 import { Button, Form, Input, Space } from 'antd'
+import Title from 'antd/es/typography/Title'
 import React from 'react'
 import * as yup from 'yup'
 import { FormContainer } from '../../Components/Organs/FormContainer'
@@ -49,8 +50,8 @@ const Register: React.FC = () => {
 
     try {
       await form.validateFields()
-      const user = await authAction.login(data)
-      user && location.replace(Route.Dashboard)
+      const res = await authAction.register(data)
+      res && location.replace(Route.Dashboard)
       setIsLoading(false)
     } catch (e) {
       setIsLoading(false)
@@ -61,14 +62,21 @@ const Register: React.FC = () => {
     <Space
       direction="vertical"
       size={defaultSizeSpace}
-      style={{ width: '100%' }}
+      style={{ width: '100%', alignItems: 'center' }}
     >
+      <Title>Register</Title>
       <FormContainer
+        style={{ width: '400px', alignItems: 'center', marginRight: '590px' }}
         onFinish={onFinish}
         form={form}
         layout="vertical"
         centered
         buttonAction={[
+          <Button
+            href={Route.Register}
+          >
+            Sudah punya akun? Login
+          </Button>,
           <Button
             type="primary"
             htmlType="submit"
@@ -81,6 +89,10 @@ const Register: React.FC = () => {
           </Button>,
         ]}
       >
+        <Form.Item label="Name" name="name" rules={[yupSync]} required>
+          <Input />
+        </Form.Item>
+
         <Form.Item label="Email" name="email" rules={[yupSync]} required>
           <Input type="email" />
         </Form.Item>
@@ -93,9 +105,6 @@ const Register: React.FC = () => {
           <Input.Password type="password" />
         </Form.Item>
 
-        <Form.Item label="Name" name="name" rules={[yupSync]} required>
-          <Input />
-        </Form.Item>
 
       </FormContainer>
     </Space>
