@@ -73,7 +73,7 @@ const Register: React.FC = () => {
         centered
         buttonAction={[
           <Button
-            href={Route.Register}
+            href={Route.Login}
           >
             Sudah punya akun? Login
           </Button>,
