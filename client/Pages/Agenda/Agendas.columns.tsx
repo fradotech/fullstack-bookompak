@@ -60,7 +60,7 @@ export const agendasColumns: ColumnsType<AgendaResponse> = [
               type: 'delete',
               title: 'delete',
               onClick: async () => {
-                const isConfirm = confirm('Yakin?')
+                const isConfirm = confirm('Apakah anda yakin ingin menghapus?')
                 isConfirm &&
                   (await agendaAction.remove(data.id)) &&
                   location.reload()
