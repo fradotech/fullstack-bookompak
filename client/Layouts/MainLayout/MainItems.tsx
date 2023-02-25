@@ -46,7 +46,7 @@ const itemsRoleAdministrator: MenuItem[] =
     ? [
       {
         key: Route.BookingsApproval,
-        label: <Link to={Route.BookingsApproval}>Persetujuan Booking</Link>,
+        label: <Link to={Route.BookingsApproval}>Verifikasi Booking</Link>,
         icon: <AuditOutlined />,
       },
       {

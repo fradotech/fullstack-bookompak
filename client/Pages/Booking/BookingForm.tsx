@@ -78,14 +78,14 @@ const BookingForm: React.FC = () => {
                 .length > 0 && isLoading
             }
           >
-            Create
+            Simpan
           </Button>,
         ]}
       >
-        <Form.Item name="room" label="Room" required>
+        <Form.Item name="Ruangan" label="Room" required>
           <Select
             showSearch
-            placeholder="Select Room"
+            placeholder="Pilih Ruangan"
             optionFilterProp="children"
             filterOption={(input, option) =>
               (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
@@ -94,15 +94,15 @@ const BookingForm: React.FC = () => {
           />
         </Form.Item>
 
-        <Form.Item label="Goal" name="goal" rules={[yupSync]} required>
+        <Form.Item label="Tujuan" name="goal" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[yupSync]} required>
+        <Form.Item label="Deskripsi" name="description" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Start At" required>
+        <Form.Item label="Waktu" required>
           <DatePicker.RangePicker
             showTime
             onOk={onOk}

@@ -43,7 +43,7 @@ const Bookings: React.FC = () => {
         }}
       >
         <PlusCircleFilled />
-        New Booking
+        Tambah Booking
       </Button>
       <DataTable
         columns={bookingsColumns}

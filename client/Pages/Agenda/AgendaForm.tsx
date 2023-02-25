@@ -60,23 +60,23 @@ const AgendaForm: React.FC = () => {
                 .length > 0 && isLoading
             }
           >
-            Create
+            Simpan
           </Button>,
         ]}
       >
-        <Form.Item label="Name" name="name" rules={[yupSync]} required>
+        <Form.Item label="Nama" name="name" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Location" name="location" rules={[yupSync]} required>
+        <Form.Item label="Lokasi" name="location" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[yupSync]} required>
+        <Form.Item label="Deskripsi" name="description" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Start At" required>
+        <Form.Item label="Waktu" required>
           <DatePicker.RangePicker
             showTime
             onOk={onOk}

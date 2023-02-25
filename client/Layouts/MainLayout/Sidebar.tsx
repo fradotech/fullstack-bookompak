@@ -35,7 +35,7 @@ const Sidebar: React.FC = () => {
       | React.KeyboardEvent<HTMLAnchorElement>,
   ) => {
     event.preventDefault()
-    const isConfirm = confirm('Are you sure to logout? ')
+    const isConfirm = confirm('Anda yakin ingin keluar?')
     isConfirm && authAction.logout() && navigate(Route.Login)
   }
 

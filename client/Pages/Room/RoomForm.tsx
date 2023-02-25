@@ -53,27 +53,27 @@ const RoomForm: React.FC = () => {
                 .length > 0 && isLoading
             }
           >
-            Create
+            Simpan
           </Button>,
         ]}
       >
-        <Form.Item label="Name" name="name" rules={[yupSync]} required>
+        <Form.Item label="Nama" name="name" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Number" name="number" rules={[yupSync]} required>
+        <Form.Item label="Nomor" name="number" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Is Ready" name="isReady" rules={[yupSync]} required>
+        <Form.Item label="Tersedia" name="isReady" rules={[yupSync]} required>
           <Switch />
         </Form.Item>
 
-        <Form.Item label="Location" name="location" rules={[yupSync]} required>
+        <Form.Item label="Lokasi" name="location" rules={[yupSync]} required>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[yupSync]} required>
+        <Form.Item label="Deskripsi" name="description" rules={[yupSync]} required>
           <Input />
         </Form.Item>
       </FormContainer>
