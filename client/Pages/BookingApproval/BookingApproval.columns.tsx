@@ -58,7 +58,7 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               type: 'check',
               title: 'approve',
               onClick: async () => {
-                const isConfirm = confirm('Apakah anda yakin ingin menghapus?')
+                const isConfirm = confirm('Apakah anda yakin ingin memverifikasi?')
                 if (isConfirm) {
                   ; (await bookingApprovalAction.updateStatus(data.id, {
                     status: EBookingStatus.Approve,
@@ -70,7 +70,7 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
               type: 'close',
               title: 'reject',
               onClick: async () => {
-                const isConfirm = confirm('Apakah anda yakin ingin menghapus?')
+                const isConfirm = confirm('Apakah anda yakin ingin menolak?')
                 if (isConfirm) {
                   ; (await bookingApprovalAction.updateStatus(data.id, {
                     status: EBookingStatus.Reject,
