@@ -75,7 +75,7 @@ const Register: React.FC = () => {
           <Button
             href={Route.Login}
           >
-            Sudah punya akun? Login
+            Sudah punya akun? Masuk
           </Button>,
           <Button
             type="primary"
@@ -85,7 +85,7 @@ const Register: React.FC = () => {
                 .length > 0 && isLoading
             }
           >
-            Register
+            Daftar
           </Button>,
         ]}
       >

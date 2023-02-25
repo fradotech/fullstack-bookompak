@@ -8,22 +8,18 @@ import { bookingsColumns } from './BookingApproval.columns'
 
 const BookingsApproval: React.FC = () => {
   const [props, setProps] = React.useState<IPaginateResponse<BookingResponse>>()
-  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
   const {
     setQueryParams,
     status: { isFetching },
   } = useTableFilter()
-  const onSelectChange = (selectRow: React.Key[]) =>
-    setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ;(async () => setProps(await bookingApprovalAction.fetch()))()
+    ; (async () => setProps(await bookingApprovalAction.fetch()))()
   }, [])
 
   return (
     <>
       <DataTable
-        rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
         columns={bookingsColumns}
         dataSource={props?.data?.map((item) => ({
           ...item,

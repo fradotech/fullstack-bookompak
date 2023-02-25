@@ -13,7 +13,7 @@ const RoomDetail: React.FC = () => {
   const [props, setProps] = React.useState<IApiRes<RoomResponse>>()
 
   React.useEffect(() => {
-    ;(async () => setProps(await roomAction.findOne(id)))()
+    ; (async () => setProps(await roomAction.findOne(id)))()
   }, [])
 
   return (
@@ -24,33 +24,27 @@ const RoomDetail: React.FC = () => {
     >
       <Section>
         <DescriptionContainer>
-          <Descriptions.Item label="ID">{props?.data?.id}</Descriptions.Item>
-
-          <Descriptions.Item label="Name">
+          <Descriptions.Item label="Nama">
             {props?.data?.name}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Number">
+          <Descriptions.Item label="Nomor">
             {props?.data?.number}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Type">
-            {props?.data?.type}
+          <Descriptions.Item label="Tersedia">
+            <Tag>{props?.data?.isReady ? 'Ya' : 'Tidak'}</Tag>
           </Descriptions.Item>
 
-          <Descriptions.Item label="Is Ready">
-            <Tag>{props?.data?.isReady ? 'Yes' : 'No'}</Tag>
-          </Descriptions.Item>
-
-          <Descriptions.Item label="Location">
+          <Descriptions.Item label="Lokasi">
             {props?.data?.location}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Description">
+          <Descriptions.Item label="Deskripsi">
             {props?.data?.description}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Updated At">
+          <Descriptions.Item label="Waktu">
             {props?.data?.updatedAt.toString()}
           </Descriptions.Item>
         </DescriptionContainer>

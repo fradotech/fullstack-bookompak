@@ -13,7 +13,7 @@ const UserDetail: React.FC = () => {
   const [props, setProps] = React.useState<IApiRes<UserResponse>>()
 
   React.useEffect(() => {
-    ;(async () => setProps(await userAction.findOne(id)))()
+    ; (async () => setProps(await userAction.findOne(id)))()
   }, [])
 
   return (
@@ -24,20 +24,19 @@ const UserDetail: React.FC = () => {
     >
       <Section>
         <DescriptionContainer>
-          <Descriptions.Item label="ID">{props?.data?.id}</Descriptions.Item>
-          <Descriptions.Item label="Name">
+          <Descriptions.Item label="Nama">
             {props?.data?.name}
           </Descriptions.Item>
           <Descriptions.Item label="Email">
             {props?.data?.email}
           </Descriptions.Item>
-          <Descriptions.Item label="Phone Number">
+          <Descriptions.Item label="Nomor Telepon">
             {props?.data?.phoneNumber}
           </Descriptions.Item>
           <Descriptions.Item label="Role">
             <Tag>{props?.data?.role}</Tag>
           </Descriptions.Item>
-          <Descriptions.Item label="Address">
+          <Descriptions.Item label="Alamat">
             {props?.data?.address}
           </Descriptions.Item>
         </DescriptionContainer>

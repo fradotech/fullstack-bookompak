@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
   return (
     <Row>
       <Col span={12}>
-        <Title level={4}>Agendas</Title>
+        <Title level={4}>Agenda</Title>
         <Row gutter={16}>
           {agendas?.data?.map((data) => {
             return (
@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
         </Row>
       </Col>
       <Col span={12}>
-        <Title level={4}>Bookings</Title>
+        <Title level={4}>Booking</Title>
         <Row gutter={16}>
           {bookings?.data?.map((data) => {
             return (

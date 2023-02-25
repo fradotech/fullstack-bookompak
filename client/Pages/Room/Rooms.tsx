@@ -13,16 +13,12 @@ import { roomsColumns } from './Rooms.columns'
 const Rooms: React.FC = () => {
   const navigate = useNavigate()
   const [props, setProps] = React.useState<IPaginateResponse<RoomResponse>>()
-  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
   const {
     setQueryParams,
     status: { isFetching },
   } = useTableFilter()
-  const onSelectChange = (selectRow: React.Key[]) =>
-    setSelectedRowKeys(selectRow)
-
   React.useEffect(() => {
-    ;(async () => setProps(await roomAction.fetch()))()
+    ; (async () => setProps(await roomAction.fetch()))()
   }, [])
 
   return (
@@ -37,10 +33,9 @@ const Rooms: React.FC = () => {
         }}
       >
         <PlusCircleFilled />
-        New Room
+        Tambah Ruangan
       </Button>
       <DataTable
-        rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
         columns={roomsColumns}
         dataSource={props?.data?.map((item) => ({
           ...item,

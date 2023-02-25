@@ -11,32 +11,32 @@ const user = authAction.loggedUser()
 
 export const agendasColumns: ColumnsType<AgendaResponse> = [
   {
-    title: 'Name',
+    title: 'Nama',
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: 'Location',
+    title: 'Lokasi',
     dataIndex: 'location',
     key: 'location',
   },
   {
-    title: 'Description',
+    title: 'Deskripsi',
     dataIndex: 'description',
     key: 'description',
   },
   {
-    title: 'Start At',
+    title: 'Waktu Mulai',
     dataIndex: 'startAt',
     key: 'startAt',
   },
   {
-    title: 'End At',
+    title: 'Waktu Selesai',
     dataIndex: 'endAt',
     key: 'endAt',
   },
   {
-    title: 'Action',
+    title: 'Aksi',
     key: 'action',
     width: '130px',
     render: (data: AgendaResponse) => {

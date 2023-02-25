@@ -46,12 +46,12 @@ const itemsRoleAdministrator: MenuItem[] =
     ? [
       {
         key: Route.BookingsApproval,
-        label: <Link to={Route.BookingsApproval}>Booking Approval</Link>,
+        label: <Link to={Route.BookingsApproval}>Persetujuan Booking</Link>,
         icon: <AuditOutlined />,
       },
       {
         key: Route.Rooms,
-        label: <Link to={Route.Rooms}>Room</Link>,
+        label: <Link to={Route.Rooms}>Ruangan</Link>,
         icon: <MergeCellsOutlined />,
       },
       {

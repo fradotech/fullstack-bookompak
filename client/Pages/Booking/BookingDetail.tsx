@@ -14,7 +14,7 @@ const BookingDetail: React.FC = () => {
   const [props, setProps] = React.useState<IApiRes<BookingResponse>>()
 
   React.useEffect(() => {
-    ;(async () => setProps(await bookingAction.findOne(id)))()
+    ; (async () => setProps(await bookingAction.findOne(id)))()
   }, [])
 
   return (
@@ -25,41 +25,39 @@ const BookingDetail: React.FC = () => {
     >
       <Section>
         <DescriptionContainer>
-          <Descriptions.Item label="ID">{props?.data?.id}</Descriptions.Item>
-
           <Descriptions.Item label="Status">
             <Tag> {props?.data?.status}</Tag>
           </Descriptions.Item>
 
-          <Descriptions.Item label="User">
+          <Descriptions.Item label="Nama User">
             <Button href={`${Route.Users}/${props?.data?.user.id}`}>
               {props?.data?.user.name}
             </Button>
           </Descriptions.Item>
 
-          <Descriptions.Item label="Room">
+          <Descriptions.Item label="Ruangan">
             <Button href={`${Route.Rooms}/${props?.data?.room.id}`}>
               {props?.data?.room.name}
             </Button>
           </Descriptions.Item>
 
-          <Descriptions.Item label="Goal">
+          <Descriptions.Item label="Tujuan">
             {props?.data?.goal}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Description">
+          <Descriptions.Item label="Deskripsi">
             {props?.data?.description}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Start At">
+          <Descriptions.Item label="Waktu Mulai">
             {props?.data?.startAt.toString()}
           </Descriptions.Item>
 
-          <Descriptions.Item label="End At">
+          <Descriptions.Item label="Waktu Selesai">
             {props?.data?.endAt.toString()}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Updated At">
+          <Descriptions.Item label="Waktu">
             {props?.data?.updatedAt.toString()}
           </Descriptions.Item>
         </DescriptionContainer>

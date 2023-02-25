@@ -8,16 +8,13 @@ import { usersColumns } from './Users.columns'
 
 const Users: React.FC = () => {
   const [props, setProps] = React.useState<IPaginateResponse<UserResponse>>()
-  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
   const {
     setQueryParams,
     status: { isFetching },
   } = useTableFilter()
-  const onSelectChange = (selectRow: React.Key[]) =>
-    setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
-    ;(async () => setProps(await userAction.fetch()))()
+    ; (async () => setProps(await userAction.fetch()))()
   }, [])
 
   return (
@@ -36,7 +33,6 @@ const Users: React.FC = () => {
         New User
       </Button> */}
       <DataTable
-        rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
         columns={usersColumns}
         dataSource={props?.data?.map((item) => ({
           ...item,

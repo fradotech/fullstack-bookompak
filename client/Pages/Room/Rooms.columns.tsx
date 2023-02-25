@@ -8,31 +8,31 @@ import { roomAction } from './Room.action'
 
 export const roomsColumns: ColumnsType<RoomResponse> = [
   {
-    title: 'Name',
+    title: 'Nama',
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: 'Number',
+    title: 'Nomor',
     dataIndex: 'number',
     key: 'number',
   },
   {
-    title: 'Is Ready',
+    title: 'Tersedia',
     key: 'isReady',
     render: (data: RoomResponse) => {
-      if (data.isReady) return <Tag color="green">Yes</Tag>
+      if (data.isReady) return <Tag color="green">Ya</Tag>
 
-      return <Tag color="red">No</Tag>
+      return <Tag color="red">Tidak</Tag>
     },
   },
   {
-    title: 'Location',
+    title: 'Lokasi',
     dataIndex: 'location',
     key: 'location',
   },
   {
-    title: 'Action',
+    title: 'Aksi',
     key: 'action',
     width: '130px',
     render: (data: RoomResponse) => {

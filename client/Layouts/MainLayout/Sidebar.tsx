@@ -67,7 +67,7 @@ const Sidebar: React.FC = () => {
             <Menu.Divider />
             <Menu.Item key="logout" icon={<LogoutOutlined />}>
               <Link to="#" onClick={handleLogout}>
-                Logout
+                Keluar
               </Link>
             </Menu.Item>
           </Menu>

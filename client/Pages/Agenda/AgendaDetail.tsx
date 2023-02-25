@@ -24,29 +24,27 @@ const AgendaDetail: React.FC = () => {
     >
       <Section>
         <DescriptionContainer>
-          <Descriptions.Item label="ID">{props?.data?.id}</Descriptions.Item>
-
-          <Descriptions.Item label="Name">
+          <Descriptions.Item label="Nama">
             {props?.data?.name}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Location">
+          <Descriptions.Item label="Lokasi">
             {props?.data?.location}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Description">
+          <Descriptions.Item label="Deskripsi">
             {props?.data?.description}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Start At">
+          <Descriptions.Item label="Waktu Mulai">
             {props?.data?.startAt.toString()}
           </Descriptions.Item>
 
-          <Descriptions.Item label="End At">
+          <Descriptions.Item label="Waktu Selesai">
             {props?.data?.endAt.toString()}
           </Descriptions.Item>
 
-          <Descriptions.Item label="Updated At">
+          <Descriptions.Item label="Waktu">
             {props?.data?.updatedAt.toString()}
           </Descriptions.Item>
         </DescriptionContainer>

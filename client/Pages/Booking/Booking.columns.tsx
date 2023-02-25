@@ -9,22 +9,22 @@ import { EBookingStatus } from './Booking.enum'
 
 export const bookingsColumns: ColumnsType<BookingResponse> = [
   {
-    title: 'User Name',
+    title: 'Nama User',
     key: 'user.name',
     render: (data: BookingResponse) => data.user?.name || '-',
   },
   {
-    title: 'Goal',
+    title: 'Tujuan',
     dataIndex: 'goal',
     key: 'goal',
   },
   {
-    title: 'Start At',
+    title: 'Waktu Mulai',
     key: 'startAt',
     render: (data: BookingResponse) => data.startAt.toString(),
   },
   {
-    title: 'End At',
+    title: 'Waktu Selesai',
     key: 'endAt',
     render: (data: BookingResponse) => data.endAt.toString(),
   },
@@ -42,7 +42,7 @@ export const bookingsColumns: ColumnsType<BookingResponse> = [
     },
   },
   {
-    title: 'Action',
+    title: 'Aksi',
     key: 'action',
     width: '130px',
     render: (data: BookingResponse) => {

@@ -8,7 +8,7 @@ import { Route } from '../../Enums/Route'
 
 export const usersColumns: ColumnsType<UserResponse> = [
   {
-    title: 'Name',
+    title: 'Nama',
     dataIndex: 'name',
     key: 'name',
   },
@@ -28,12 +28,12 @@ export const usersColumns: ColumnsType<UserResponse> = [
     },
   },
   {
-    title: 'Phone Number',
+    title: 'Nomor Telepon',
     dataIndex: 'phoneNumber',
     key: 'phoneNumber',
   },
   {
-    title: 'Action',
+    title: 'Aksi',
     key: 'action',
     width: '130px',
     render: (data: UserResponse) => {

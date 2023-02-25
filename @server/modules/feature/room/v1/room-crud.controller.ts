@@ -7,7 +7,7 @@ import {
   Post,
   Put,
   Query,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { BaseCrudController } from '@server/infrastructure/base/base-crud.controller'
@@ -20,7 +20,7 @@ import { RoomCrudApp } from '../infrastructure/room-crud.app'
 import {
   RoomCreateRequest,
   RoomIndexRequest,
-  RoomUpdateRequest,
+  RoomUpdateRequest
 } from '../infrastructure/room.request'
 import { RoomResponse } from '../infrastructure/room.response'
 
@@ -67,7 +67,7 @@ export class RoomCrudController implements BaseCrudController {
   @UseGuards(AdminGuard)
   @Delete(':id')
   async delete(@Param('id') id: string): Promise<IApiRes<RoomResponse>> {
-    const data = await this.roomCrudApp.remove(id)
+    const data = await this.roomCrudApp.softRemove(id)
     return ApiRes.all(RoomResponse.fromEntity(data))
   }
 }

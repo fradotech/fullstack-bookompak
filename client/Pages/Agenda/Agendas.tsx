@@ -17,13 +17,10 @@ const Agendas: React.FC = () => {
   const user = authAction.loggedUser()
   const navigate = useNavigate()
   const [props, setProps] = React.useState<IPaginateResponse<AgendaResponse>>()
-  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([])
   const {
     setQueryParams,
     status: { isFetching },
   } = useTableFilter()
-  const onSelectChange = (selectRow: React.Key[]) =>
-    setSelectedRowKeys(selectRow)
 
   React.useEffect(() => {
     ; (async () => setProps(await agendaAction.fetch()))()
@@ -41,10 +38,9 @@ const Agendas: React.FC = () => {
         }}
       >
         <PlusCircleFilled />
-        New Agenda
+        Tambah Agenda
       </Button>}
       <DataTable
-        rowSelection={{ selectedRowKeys, onChange: onSelectChange }}
         columns={agendasColumns}
         dataSource={props?.data?.map((item) => ({
           ...item,
