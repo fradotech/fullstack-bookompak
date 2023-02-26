@@ -82,7 +82,7 @@ const BookingForm: React.FC = () => {
           </Button>,
         ]}
       >
-        <Form.Item name="Ruangan" label="Room" required>
+        <Form.Item label="Ruangan" name="room" required>
           <Select
             showSearch
             placeholder="Pilih Ruangan"
