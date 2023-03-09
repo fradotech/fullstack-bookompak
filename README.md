@@ -1,3 +1,5 @@
+V 0.0.1
+
 ## Install & Preparation
 
 1. Copy `.env.example` and rename to `.env`
